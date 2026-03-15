@@ -44,7 +44,7 @@ export default function EarnPage() {
   const [depositAmount, setDepositAmount] = useState('');
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-4 sm:space-y-6 max-w-5xl mx-auto w-full min-w-0">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-5">
           <p className="text-gray-400 text-[12px] font-medium mb-1">Total Deposited</p>
@@ -68,11 +68,11 @@ export default function EarnPage() {
               className="p-5 cursor-pointer hover:bg-[#111424] transition-colors"
               onClick={() => setSelectedVault(selectedVault === i ? null : i)}
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <img src={vault.logo} alt={vault.name} className="w-10 h-10 rounded-full" />
-                  <div>
-                    <div className="flex items-center space-x-2">
+              <div className="flex items-center justify-between min-w-0 gap-2">
+                <div className="flex items-center space-x-3 min-w-0 shrink">
+                  <img src={vault.logo} alt={vault.name} className="w-10 h-10 rounded-full shrink-0" />
+                  <div className="min-w-0">
+                    <div className="flex items-center space-x-2 flex-wrap">
                       <p className="text-[14px] font-semibold">{vault.name} Vault</p>
                       <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
                         vault.status === 'Active'
@@ -85,7 +85,7 @@ export default function EarnPage() {
                     <p className="text-[11px] text-gray-500">via {vault.protocol}</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-4 sm:space-x-6 shrink-0">
                   <div className="text-right hidden sm:block">
                     <p className="text-[13px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#9b51e0] to-[#f27a33]">{vault.apy} APY</p>
                     <p className="text-[11px] text-gray-500">TVL {vault.tvl}</p>
@@ -94,7 +94,7 @@ export default function EarnPage() {
                     <p className="text-[13px] font-semibold">{vault.deposited}</p>
                     <p className="text-[11px] text-gray-500">Deposited</p>
                   </div>
-                  <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${selectedVault === i ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform shrink-0 ${selectedVault === i ? 'rotate-180' : ''}`} />
                 </div>
               </div>
               <div className="flex items-center space-x-6 mt-3 sm:hidden">

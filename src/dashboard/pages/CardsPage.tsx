@@ -6,7 +6,7 @@ export default function CardsPage() {
   const [showCvv, setShowCvv] = useState(false);
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-4 sm:space-y-6 max-w-5xl mx-auto w-full min-w-0">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="space-y-6">
           <div className={`relative w-full aspect-[1.6/1] max-w-[420px] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] transition-all ${cardFrozen ? 'opacity-60 grayscale' : ''}`}

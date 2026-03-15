@@ -15,36 +15,36 @@ const portfolio = [
 
 export default function InvestPage() {
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-5">
+    <div className="space-y-4 sm:space-y-6 w-full max-w-5xl mx-auto min-w-0">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+        <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-4 sm:p-5">
           <p className="text-gray-400 text-[12px] font-medium mb-1">Portfolio Value</p>
           <div className="flex items-end space-x-2">
-            <p className="text-[1.5rem] font-bold">$14,221.88</p>
-            <div className="flex items-center text-[#00e676] text-[12px] font-semibold mb-1">
+            <p className="text-[1.25rem] sm:text-[1.5rem] font-bold">$14,221.88</p>
+            <div className="flex items-center text-[#00e676] text-[11px] sm:text-[12px] font-semibold mb-0.5">
               <TrendingUp className="w-3 h-3 mr-0.5" />
               +2.5%
             </div>
           </div>
         </div>
-        <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-5">
+        <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-4 sm:p-5">
           <p className="text-gray-400 text-[12px] font-medium mb-1">Total P&L</p>
-          <p className="text-[1.5rem] font-bold text-[#00e676]">+$1,843.22</p>
+          <p className="text-[1.25rem] sm:text-[1.5rem] font-bold text-[#00e676]">+$1,843.22</p>
         </div>
-        <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-5">
+        <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-4 sm:p-5">
           <p className="text-gray-400 text-[12px] font-medium mb-1">Assets Held</p>
-          <p className="text-[1.5rem] font-bold">5</p>
+          <p className="text-[1.25rem] sm:text-[1.5rem] font-bold">5</p>
         </div>
       </div>
 
-      <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-6">
-        <div className="flex items-center justify-between mb-5">
-          <h3 className="text-[15px] font-semibold">Performance</h3>
-          <div className="flex space-x-1">
+      <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-4 sm:p-6 min-w-0">
+        <div className="flex items-center justify-between mb-5 min-w-0 gap-3">
+          <h3 className="text-[15px] font-semibold shrink-0">Performance</h3>
+          <div className="flex space-x-1 overflow-x-auto no-scrollbar shrink min-w-0">
             {['1D', '1W', '1M', '3M', '1Y', 'ALL'].map((period, i) => (
               <button
                 key={period}
-                className={`px-3 py-1 rounded-lg text-[12px] font-medium transition-colors ${
+                className={`px-2.5 sm:px-3 py-1 rounded-lg text-[12px] font-medium transition-colors whitespace-nowrap shrink-0 ${
                   i === 4 ? 'bg-[#9b51e0]/20 text-white border border-[#9b51e0]/30' : 'text-gray-500 hover:text-gray-300'
                 }`}
               >
@@ -75,10 +75,10 @@ export default function InvestPage() {
         </div>
       </div>
 
-      <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-6">
+      <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-4 sm:p-6 min-w-0">
         <div className="flex items-center justify-between mb-5">
           <h3 className="text-[15px] font-semibold">Holdings</h3>
-          <button className="text-[12px] text-[#9b51e0] font-medium hover:text-[#f27a33] transition-colors">
+          <button className="text-[12px] text-[#9b51e0] font-medium hover:text-[#f27a33] transition-colors shrink-0">
             + Add Asset
           </button>
         </div>
@@ -95,29 +95,29 @@ export default function InvestPage() {
           {portfolio.map((asset) => (
             <div
               key={asset.symbol}
-              className="flex items-center justify-between p-3 rounded-xl bg-[#111424] border border-[#1e293b] hover:border-[#9b51e0]/20 transition-colors cursor-pointer"
+              className="flex items-center justify-between p-3 rounded-xl bg-[#111424] border border-[#1e293b] hover:border-[#9b51e0]/20 transition-colors cursor-pointer min-w-0 gap-2"
             >
-              <div className="flex items-center space-x-3 min-w-0 flex-1">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center overflow-hidden shrink-0 ${asset.bgClass}`}>
-                  <img src={asset.logo} alt={asset.name} className={`${asset.bgClass ? 'w-7 h-7' : 'w-10 h-10'} object-contain`} />
+              <div className="flex items-center space-x-3 min-w-0 shrink">
+                <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center overflow-hidden shrink-0 ${asset.bgClass}`}>
+                  <img src={asset.logo} alt={asset.name} className={`${asset.bgClass ? 'w-6 h-6 sm:w-7 sm:h-7' : 'w-9 h-9 sm:w-10 sm:h-10'} object-contain`} />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[14px] font-semibold truncate">{asset.name}</p>
-                  <p className="text-[11px] text-gray-500">{asset.symbol}</p>
+                  <p className="text-[13px] sm:text-[14px] font-semibold truncate">{asset.name}</p>
+                  <p className="text-[10px] sm:text-[11px] text-gray-500">{asset.symbol}</p>
                 </div>
               </div>
 
-              <div className="hidden sm:flex items-center flex-1 justify-between">
+              <div className="hidden sm:flex items-center flex-1 justify-between min-w-0">
                 <span className="text-[14px] font-semibold w-24">{asset.value}</span>
                 <span className={`text-[13px] font-medium flex items-center w-20 ${asset.positive ? 'text-[#00e676]' : 'text-red-400'}`}>
-                  {asset.positive ? <ArrowUpRight className="w-3 h-3 mr-0.5" /> : <ArrowDownRight className="w-3 h-3 mr-0.5" />}
+                  {asset.positive ? <ArrowUpRight className="w-3 h-3 mr-0.5 shrink-0" /> : <ArrowDownRight className="w-3 h-3 mr-0.5 shrink-0" />}
                   {asset.change}
                 </span>
                 <span className="text-[13px] text-gray-400 w-16">{asset.allocation}</span>
                 <span className="text-[13px] text-gray-400 text-right w-24">{asset.shares}</span>
               </div>
 
-              <div className="sm:hidden text-right ml-3">
+              <div className="sm:hidden text-right shrink-0">
                 <p className="text-[13px] font-semibold">{asset.value}</p>
                 <p className={`text-[11px] font-medium ${asset.positive ? 'text-[#00e676]' : 'text-red-400'}`}>{asset.change}</p>
               </div>

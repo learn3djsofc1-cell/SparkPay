@@ -8,7 +8,7 @@ export default function BorrowPage() {
   );
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-4 sm:space-y-6 max-w-5xl mx-auto w-full min-w-0">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-6">
           <div className="flex items-center space-x-2 mb-6">

@@ -64,33 +64,33 @@ export default function DashboardLayout() {
         </nav>
       </aside>
 
-      <div className="flex-1 flex flex-col min-h-screen md:ml-[240px]">
+      <div className="flex-1 flex flex-col min-h-screen min-w-0 w-full md:ml-[240px] overflow-x-hidden">
         <header className="sticky top-0 z-30 bg-[#05050a]/80 backdrop-blur-xl border-b border-[#1e293b]/50">
-          <div className="flex items-center justify-between px-4 sm:px-6 h-16">
-            <div className="flex items-center space-x-3 md:hidden">
+          <div className="flex items-center justify-between px-3 sm:px-6 h-16 min-w-0">
+            <div className="flex items-center space-x-2 md:hidden min-w-0 shrink-0">
               <Link to="/" className="flex items-center space-x-2">
-                <img src={sparkPayLogo} alt="SparkPay" className="w-7 h-7" />
+                <img src={sparkPayLogo} alt="SparkPay" className="w-7 h-7 shrink-0" />
                 <span className="text-lg font-black tracking-tighter lowercase">sparkpay</span>
               </Link>
             </div>
 
             <h1 className="hidden md:block text-lg font-semibold">{currentPage.label}</h1>
 
-            <div className="flex items-center space-x-3">
-              <button className="relative w-9 h-9 rounded-xl bg-[#111424] border border-[#1e293b] flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1a1f35] transition-colors">
+            <div className="flex items-center space-x-2 sm:space-x-3 shrink-0">
+              <button className="relative w-9 h-9 shrink-0 rounded-xl bg-[#111424] border border-[#1e293b] flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1a1f35] transition-colors">
                 <Bell className="w-4 h-4" />
                 <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-[#f27a33] rounded-full"></div>
               </button>
 
-              <div className="flex items-center space-x-2 bg-[#111424] border border-[#1e293b] rounded-xl px-3 py-2 cursor-pointer hover:bg-[#1a1f35] transition-colors">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#9b51e0] to-[#f27a33]"></div>
+              <div className="flex items-center space-x-1.5 sm:space-x-2 bg-[#111424] border border-[#1e293b] rounded-xl px-2 sm:px-3 py-2 cursor-pointer hover:bg-[#1a1f35] transition-colors shrink-0">
+                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#9b51e0] to-[#f27a33] shrink-0"></div>
                 <span className="text-[13px] text-gray-300 font-medium hidden sm:inline">7xK...9f2D</span>
-                <Copy className="w-3.5 h-3.5 text-gray-500" />
+                <Copy className="w-3.5 h-3.5 text-gray-500 shrink-0" />
               </div>
 
               <Link
                 to="/"
-                className="hidden sm:flex w-9 h-9 rounded-xl bg-[#111424] border border-[#1e293b] items-center justify-center text-gray-400 hover:text-white hover:bg-[#1a1f35] transition-colors"
+                className="hidden sm:flex w-9 h-9 shrink-0 rounded-xl bg-[#111424] border border-[#1e293b] items-center justify-center text-gray-400 hover:text-white hover:bg-[#1a1f35] transition-colors"
               >
                 <LogOut className="w-4 h-4" />
               </Link>
@@ -98,7 +98,7 @@ export default function DashboardLayout() {
           </div>
         </header>
 
-        <main className="flex-1 p-4 sm:p-6 pb-24 md:pb-6 overflow-x-hidden">
+        <main className="flex-1 p-3 sm:p-6 pb-24 md:pb-6 min-w-0 w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={location.pathname}

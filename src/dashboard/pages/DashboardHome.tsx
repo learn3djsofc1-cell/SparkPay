@@ -27,9 +27,9 @@ const transactions = [
 
 export default function DashboardHome() {
   return (
-    <div className="space-y-6 max-w-6xl mx-auto">
+    <div className="space-y-4 sm:space-y-6 max-w-6xl mx-auto w-full min-w-0">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-6">
+        <div className="lg:col-span-2 bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-4 sm:p-6">
           <p className="text-gray-400 text-[13px] font-medium mb-1">Total Balance</p>
           <div className="flex items-end space-x-3 mb-1">
             <h2 className="text-[2.5rem] sm:text-[3rem] font-bold tracking-tight">$43,903</h2>
@@ -61,7 +61,7 @@ export default function DashboardHome() {
           </div>
         </div>
 
-        <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-6">
+        <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-4 sm:p-6">
           <p className="text-gray-400 text-[13px] font-medium mb-4">Quick Actions</p>
           <div className="grid grid-cols-2 gap-3">
             {quickActions.map((action) => (
@@ -80,7 +80,7 @@ export default function DashboardHome() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-6">
+        <div className="lg:col-span-2 bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-4 sm:p-6">
           <div className="flex items-center justify-between mb-5">
             <h3 className="text-[15px] font-semibold">Assets</h3>
             <span className="text-[12px] text-gray-500 font-medium cursor-pointer hover:text-gray-300 transition-colors">View all</span>
@@ -109,7 +109,7 @@ export default function DashboardHome() {
           </div>
         </div>
 
-        <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-6">
+        <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-4 sm:p-6">
           <div className="flex items-center justify-between mb-5">
             <h3 className="text-[15px] font-semibold">Recent Activity</h3>
             <span className="text-[12px] text-gray-500 font-medium cursor-pointer hover:text-gray-300 transition-colors">View all</span>
@@ -135,14 +135,14 @@ export default function DashboardHome() {
         </div>
       </div>
 
-      <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-6">
-        <div className="flex items-center justify-between mb-5">
-          <h3 className="text-[15px] font-semibold">Portfolio Performance</h3>
-          <div className="flex space-x-1">
+      <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-4 sm:p-6">
+        <div className="flex items-center justify-between mb-5 min-w-0 gap-3">
+          <h3 className="text-[15px] font-semibold shrink-0">Portfolio Performance</h3>
+          <div className="flex space-x-1 overflow-x-auto no-scrollbar shrink min-w-0">
             {['1D', '1W', '1M', '3M', '1Y'].map((period, i) => (
               <button
                 key={period}
-                className={`px-3 py-1 rounded-lg text-[12px] font-medium transition-colors ${
+                className={`px-2.5 sm:px-3 py-1 rounded-lg text-[12px] font-medium transition-colors whitespace-nowrap shrink-0 ${
                   i === 2 ? 'bg-[#9b51e0]/20 text-white border border-[#9b51e0]/30' : 'text-gray-500 hover:text-gray-300'
                 }`}
               >

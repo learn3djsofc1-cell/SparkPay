@@ -11,7 +11,7 @@ export default function SettingsPage() {
   ];
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-4 sm:space-y-6 max-w-4xl mx-auto w-full min-w-0">
       <div className="bg-[#0f0f13] border border-[#1e293b]/50 rounded-2xl p-6">
         <div className="flex items-center space-x-2 mb-6">
           <User className="w-5 h-5 text-[#9b51e0]" />
@@ -64,12 +64,12 @@ export default function SettingsPage() {
         </div>
 
         <div className="space-y-4">
-          <div className="flex items-center justify-between p-4 bg-[#111424] border border-[#1e293b] rounded-xl">
-            <div className="flex items-center space-x-3">
-              <Key className="w-4 h-4 text-gray-400" />
-              <div>
-                <p className="text-[13px] font-medium">Two-Factor Authentication</p>
-                <p className="text-[11px] text-gray-500">Add an extra layer of security to your account</p>
+          <div className="flex items-center justify-between p-3 sm:p-4 bg-[#111424] border border-[#1e293b] rounded-xl gap-3 min-w-0">
+            <div className="flex items-center space-x-3 min-w-0 shrink">
+              <Key className="w-4 h-4 text-gray-400 shrink-0" />
+              <div className="min-w-0">
+                <p className="text-[12px] sm:text-[13px] font-medium">Two-Factor Authentication</p>
+                <p className="text-[10px] sm:text-[11px] text-gray-500">Add an extra layer of security</p>
               </div>
             </div>
             <button
@@ -80,15 +80,15 @@ export default function SettingsPage() {
             </button>
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-[#111424] border border-[#1e293b] rounded-xl cursor-pointer hover:border-[#9b51e0]/20 transition-colors">
-            <div className="flex items-center space-x-3">
-              <Smartphone className="w-4 h-4 text-gray-400" />
-              <div>
-                <p className="text-[13px] font-medium">Passkey / Biometrics</p>
-                <p className="text-[11px] text-gray-500">Sign in with fingerprint or face recognition</p>
+          <div className="flex items-center justify-between p-3 sm:p-4 bg-[#111424] border border-[#1e293b] rounded-xl cursor-pointer hover:border-[#9b51e0]/20 transition-colors gap-3 min-w-0">
+            <div className="flex items-center space-x-3 min-w-0 shrink">
+              <Smartphone className="w-4 h-4 text-gray-400 shrink-0" />
+              <div className="min-w-0">
+                <p className="text-[12px] sm:text-[13px] font-medium">Passkey / Biometrics</p>
+                <p className="text-[10px] sm:text-[11px] text-gray-500">Sign in with fingerprint or face</p>
               </div>
             </div>
-            <span className="text-[11px] text-[#00e676] font-semibold bg-[#00e676]/10 px-2 py-0.5 rounded-full">Enabled</span>
+            <span className="text-[11px] text-[#00e676] font-semibold bg-[#00e676]/10 px-2 py-0.5 rounded-full shrink-0 whitespace-nowrap">Enabled</span>
           </div>
         </div>
       </div>
@@ -106,24 +106,24 @@ export default function SettingsPage() {
 
         <div className="space-y-3">
           {sessions.map((session, i) => (
-            <div key={i} className="flex items-center justify-between p-4 bg-[#111424] border border-[#1e293b] rounded-xl">
-              <div className="flex items-center space-x-3">
+            <div key={i} className="flex items-center justify-between p-3 sm:p-4 bg-[#111424] border border-[#1e293b] rounded-xl gap-2 min-w-0">
+              <div className="flex items-center space-x-3 min-w-0 shrink">
                 <div className={`w-2 h-2 rounded-full shrink-0 ${session.current ? 'bg-[#00e676]' : 'bg-gray-600'}`}></div>
-                <div>
-                  <p className="text-[13px] font-medium">
+                <div className="min-w-0">
+                  <p className="text-[12px] sm:text-[13px] font-medium truncate">
                     {session.device}
-                    {session.current && <span className="text-[10px] text-[#00e676] ml-2">(This device)</span>}
+                    {session.current && <span className="text-[10px] text-[#00e676] ml-1 sm:ml-2">(This device)</span>}
                   </p>
-                  <p className="text-[11px] text-gray-500">{session.browser} - {session.location}</p>
+                  <p className="text-[10px] sm:text-[11px] text-gray-500 truncate">{session.browser} - {session.location}</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="flex items-center space-x-1 text-[11px] text-gray-500">
+              <div className="flex items-center space-x-2 sm:space-x-3 shrink-0">
+                <div className="hidden sm:flex items-center space-x-1 text-[11px] text-gray-500">
                   <Clock className="w-3 h-3" />
                   <span>{session.lastActive}</span>
                 </div>
                 {!session.current && (
-                  <button className="text-[11px] text-red-400 font-medium hover:text-red-300 transition-colors">
+                  <button className="text-[11px] text-red-400 font-medium hover:text-red-300 transition-colors whitespace-nowrap">
                     Revoke
                   </button>
                 )}

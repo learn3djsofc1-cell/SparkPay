@@ -959,7 +959,7 @@ export default function App() {
               <img src="/gold-dollar.avif" alt="Dollar" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-6 group-hover:scale-110 transition-transform duration-500" />
               <img src="/ethereum-purple.avif" alt="USDC" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-6 group-hover:scale-110 transition-transform duration-500" />
               <img src="/gold-rectangle.avif" alt="Gold" className="w-14 h-20 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
-              <img src="/ethereum-coin-3d.avif" alt="Solana" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/solana-3d.avif" alt="Solana" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-12 group-hover:scale-110 transition-transform duration-500" />
               <img src="/bitcoin-orange.avif" alt="Bitcoin" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
             </div>
             

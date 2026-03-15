@@ -156,7 +156,7 @@ export default function App() {
                   <div className="absolute right-[-30px] top-1/2 -translate-y-1/2 w-40 h-40 transform rotate-[15deg] transition-transform group-hover:rotate-[10deg]">
                      <div className="w-full h-full bg-gradient-to-br from-gray-800 to-black rounded-xl border border-gray-700 shadow-xl relative overflow-hidden">
                         {/* Card details */}
-                        <div className="absolute top-3 left-3 text-[10px] font-bold text-gray-400 tracking-widest">veera</div>
+                        <div className="absolute top-3 left-3 text-[10px] font-bold text-gray-400 tracking-widest">SparkPay</div>
                         <div className="absolute top-1/2 -translate-y-1/2 w-full h-8 bg-black/40"></div>
                         <div className="absolute bottom-3 right-3 text-[8px] text-gray-500">PLATINUM</div>
                      </div>
@@ -206,17 +206,6 @@ export default function App() {
               <ChevronRight className="w-4 h-4" strokeWidth={1.5} />
             </button>
           </div>
-        </div>
-
-        {/* Keep Scrolling */}
-        <div className="hidden md:flex absolute bottom-10 left-10 items-center space-x-4 z-20">
-          <div className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-            <div className="flex space-x-1">
-              <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-            </div>
-          </div>
-          <span className="text-[11px] font-bold tracking-widest text-gray-400 uppercase">Keep Scrolling</span>
         </div>
 
       </main>
@@ -476,7 +465,7 @@ export default function App() {
                 <div className="absolute -left-10 -top-10 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
                 
                 <div className="relative z-10 flex justify-between items-start">
-                  <span className="text-gray-300 font-black tracking-widest text-sm lowercase">veera</span>
+                  <span className="text-gray-300 font-black tracking-widest text-sm lowercase">SparkPay</span>
                 </div>
                 
                 <div className="relative z-10 flex items-center justify-between mt-4">
@@ -1666,16 +1655,6 @@ export default function App() {
         </footer>
       </section>
 
-      {/* Keep Scrolling Indicator */}
-      <div className="fixed bottom-8 left-8 flex items-center space-x-4 z-50">
-        <div className="w-12 h-12 bg-[#0a0a0a] border border-gray-800 hover:bg-[#1a1a1a] cursor-pointer transition-colors rounded-full flex items-center justify-center space-x-1.5">
-          <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-          <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-        </div>
-        <div className="text-white text-[11px] font-bold tracking-[0.15em] cursor-pointer hover:text-gray-300 transition-colors">
-          KEEP SCROLLING
-        </div>
-      </div>
 
     </div>
   );

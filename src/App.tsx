@@ -945,53 +945,29 @@ export default function App() {
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
           
           {/* Card 1: Access to every asset class */}
-          <div className="md:col-span-2 bg-[#0f0f13] border border-gray-800/50 rounded-[2rem] p-10 flex flex-col justify-between overflow-hidden relative group">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="md:col-span-2 bg-[#0f0f13] border border-gray-800/50 rounded-[2rem] p-10 flex flex-col justify-between overflow-hidden relative group cursor-pointer transition-transform duration-500 hover:scale-[1.02]">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#f27a33]/10 via-transparent to-[#9b51e0]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <h3 className="text-2xl font-semibold text-white mb-16 relative z-10">
-              Multi-Asset<br />Investing
+              Access to every<br />asset class
             </h3>
             
             {/* Coins Row */}
             <div className="flex items-center justify-between relative z-10 px-4">
-              {/* Ethereum (Dark) */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#2a2a36] to-[#1a1a24] border border-gray-700 shadow-[0_10px_20px_rgba(0,0,0,0.5),inset_0_-4px_4px_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.1)] flex items-center justify-center transform -rotate-12 hover:scale-110 transition-transform">
-                <div className="w-6 h-10 bg-gray-400" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 50% 100%, 0% 25%)' }}></div>
-              </div>
-              {/* Dollar (Yellow) */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#fcd34d] to-[#d97706] border border-yellow-600 shadow-[0_10px_20px_rgba(0,0,0,0.5),inset_0_-4px_4px_rgba(180,83,9,0.8),inset_0_2px_4px_rgba(255,255,255,0.5)] flex items-center justify-center transform rotate-6 hover:scale-110 transition-transform">
-                <span className="text-yellow-900 font-bold text-2xl">$</span>
-              </div>
-              {/* USDC (Blue) */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#60a5fa] to-[#2563eb] border border-blue-600 shadow-[0_10px_20px_rgba(0,0,0,0.5),inset_0_-4px_4px_rgba(30,58,138,0.8),inset_0_2px_4px_rgba(255,255,255,0.4)] flex items-center justify-center transform -rotate-6 hover:scale-110 transition-transform">
-                <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">$</span>
-                </div>
-              </div>
-              {/* Gold Bar */}
-              <div className="w-12 h-20 rounded-md bg-gradient-to-b from-[#fde047] to-[#ca8a04] border border-yellow-600 shadow-[0_10px_20px_rgba(0,0,0,0.5),inset_0_-4px_4px_rgba(161,98,7,0.8),inset_0_2px_4px_rgba(255,255,255,0.6)] flex items-center justify-center transform rotate-12 hover:scale-110 transition-transform">
-                <span className="text-yellow-800 font-bold text-[10px] tracking-widest rotate-90">GOLD</span>
-              </div>
-              {/* Solana (Dark) */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#2a2a36] to-[#1a1a24] border border-gray-700 shadow-[0_10px_20px_rgba(0,0,0,0.5),inset_0_-4px_4px_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.1)] flex items-center justify-center transform -rotate-12 hover:scale-110 transition-transform">
-                <div className="flex flex-col space-y-1">
-                  <div className="w-6 h-1.5 bg-gradient-to-r from-[#00FFA3] to-[#03E1FF] rounded-sm transform skew-x-[-20deg]"></div>
-                  <div className="w-6 h-1.5 bg-gradient-to-r from-[#00FFA3] to-[#03E1FF] rounded-sm transform skew-x-[20deg]"></div>
-                  <div className="w-6 h-1.5 bg-gradient-to-r from-[#00FFA3] to-[#03E1FF] rounded-sm transform skew-x-[-20deg]"></div>
-                </div>
-              </div>
-              {/* Bitcoin (Yellow) */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#fcd34d] to-[#d97706] border border-yellow-600 shadow-[0_10px_20px_rgba(0,0,0,0.5),inset_0_-4px_4px_rgba(180,83,9,0.8),inset_0_2px_4px_rgba(255,255,255,0.5)] flex items-center justify-center transform rotate-12 hover:scale-110 transition-transform overflow-hidden">
-                <img src={bitcoinLogo} alt="Bitcoin" className="w-16 h-16" />
-              </div>
+              <img src="/ethereum-purple.avif" alt="Ethereum" className="w-16 h-16 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/gold-dollar.avif" alt="Dollar" className="w-16 h-16 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-6 group-hover:scale-110 transition-transform duration-500" />
+              <img src={usdcLogo} alt="USDC" className="w-16 h-16 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-6 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/gold-rectangle.avif" alt="Gold" className="w-14 h-20 rounded-md shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <img src={solanaLogo} alt="Solana" className="w-16 h-16 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/bitcoin-orange.avif" alt="Bitcoin" className="w-16 h-16 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
             </div>
             
             {/* Subtle glow behind coins */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-gradient-to-t from-white/10 to-transparent blur-2xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-gradient-to-t from-[#f27a33]/15 to-transparent blur-2xl pointer-events-none"></div>
           </div>
 
           {/* Card 4: Shockingly simple to use (Right Tall) */}
-          <div className="md:col-span-1 md:row-span-2 bg-[#0f0f13] border border-gray-800/50 rounded-[2rem] p-10 flex flex-col items-center justify-between overflow-hidden relative group">
-            <div className="absolute inset-0 bg-gradient-to-b from-[#2a1b38]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="md:col-span-1 md:row-span-2 bg-[#0f0f13] border border-gray-800/50 rounded-[2rem] p-10 flex flex-col items-center justify-between overflow-hidden relative group cursor-pointer transition-transform duration-500 hover:scale-[1.02]">
+            <div className="absolute inset-0 bg-gradient-to-b from-[#2a1b38]/30 via-transparent to-[#9b51e0]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
             {/* Phone Mockup */}
             <div className="relative w-[220px] h-[450px] bg-[#05050a] border-[6px] border-[#1a1a24] rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col mt-4 z-10">
@@ -1021,65 +997,33 @@ export default function App() {
             </div>
 
             <h3 className="text-2xl font-semibold text-white mt-10 w-full text-left relative z-10">
-              Instant Crypto Top-Ups
+              Shockingly simple<br />to use
             </h3>
           </div>
 
           {/* Card 2: Compatible with any blockchain */}
-          <div className="md:col-span-1 bg-[#0f0f13] border border-gray-800/50 rounded-[2rem] p-8 flex flex-col justify-between overflow-hidden relative group h-[320px]">
-            <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="md:col-span-1 bg-[#0f0f13] border border-gray-800/50 rounded-[2rem] p-8 flex flex-col justify-between overflow-hidden relative group h-[320px] cursor-pointer transition-transform duration-500 hover:scale-[1.02]">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#e84393]/10 via-transparent to-[#6c5ce7]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <h3 className="text-xl font-semibold text-white mb-8 relative z-10">
-              Global<br />Spending
+              Compatible with any<br />blockchain
             </h3>
             
-            {/* 3D Cubes Illustration */}
+            {/* Chain Network Image */}
             <div className="relative flex-1 flex items-end justify-center pb-4 z-10">
-              <div className="relative w-32 h-32" style={{ transform: 'rotateX(60deg) rotateZ(45deg)', transformStyle: 'preserve-3d' }}>
-                {/* Lines */}
-                <div className="absolute top-4 left-4 w-24 h-0.5 bg-blue-500/50 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                <div className="absolute top-4 left-4 w-0.5 h-24 bg-blue-500/50 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                <div className="absolute bottom-4 left-4 w-24 h-0.5 bg-blue-500/50 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                <div className="absolute top-4 right-4 w-0.5 h-24 bg-blue-500/50 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                
-                {/* Cubes */}
-                <div className="absolute top-0 left-0 w-8 h-8 bg-gray-700 border border-gray-600 transform translate-z-4 shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-                </div>
-                <div className="absolute top-0 right-0 w-8 h-8 bg-gray-700 border border-gray-600 transform translate-z-4 shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-                </div>
-                <div className="absolute bottom-0 left-0 w-8 h-8 bg-gray-700 border border-gray-600 transform translate-z-4 shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-                </div>
-                <div className="absolute bottom-0 right-0 w-8 h-8 bg-gray-700 border border-gray-600 transform translate-z-8 shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-                </div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-gray-600 border border-gray-500 transform translate-z-12 shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent"></div>
-                </div>
-              </div>
+              <img src="/chain-network.avif" alt="Blockchain network" className="w-32 h-32 object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </div>
 
           {/* Card 3: Self-custodial by design */}
-          <div className="md:col-span-1 bg-[#0f0f13] border border-gray-800/50 rounded-[2rem] p-8 flex flex-col justify-between overflow-hidden relative group h-[320px]">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="md:col-span-1 bg-[#0f0f13] border border-gray-800/50 rounded-[2rem] p-8 flex flex-col justify-between overflow-hidden relative group h-[320px] cursor-pointer transition-transform duration-500 hover:scale-[1.02]">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0984e3]/10 via-transparent to-[#6c5ce7]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <h3 className="text-xl font-semibold text-white mb-8 relative z-10">
-              Self-Custodial Wallet
+              Self-custodial<br />by design
             </h3>
             
-            {/* 3D Padlock Illustration */}
+            {/* Lock Icon Image */}
             <div className="relative flex-1 flex items-end justify-center pb-4 z-10">
-              <div className="relative w-24 h-32 flex flex-col items-center transform hover:-translate-y-2 transition-transform duration-500">
-                {/* Shackle */}
-                <div className="w-12 h-16 border-4 border-gray-400 rounded-t-full border-b-0 relative z-0 bg-gradient-to-t from-gray-600 to-gray-300" style={{ WebkitBackgroundClip: 'text', color: 'transparent' }}>
-                   <div className="absolute inset-0 border-4 border-gray-300 rounded-t-full border-b-0 shadow-[inset_0_2px_4px_rgba(255,255,255,0.8)]"></div>
-                </div>
-                {/* Body */}
-                <div className="w-20 h-20 bg-gradient-to-br from-[#4c6ee6] to-[#2a3c80] rounded-xl relative z-10 shadow-[0_10px_20px_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.3)] flex items-center justify-center border border-[#5c7ef6]">
-                  <Fingerprint className="w-10 h-10 text-white/80" strokeWidth={1.5} />
-                </div>
-              </div>
+              <img src="/lock-icon.avif" alt="Security lock" className="w-28 h-28 object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </div>
 

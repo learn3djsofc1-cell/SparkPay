@@ -3,6 +3,8 @@ import { Volume2, ChevronRight, Signal, Wifi, Battery, MoreVertical, ChevronLeft
 import sparkPayLogo from '@/attached_assets/Frame_1171275126_1773561837325.png';
 import solanaLogo from '@/attached_assets/solana-sol-logo_(17)_1773564269930.png';
 import usdcLogo from '@/attached_assets/usd-coin-usdc-logo_(5)_1773564245249.png';
+import netflixLogo from '@/attached_assets/Netflix-Symbol_1773564776076.png';
+import spotifyLogo from '@/attached_assets/Spotify_Primary_Logo_RGB_Green_1773564758391.png';
 
 export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -510,14 +512,11 @@ export default function App() {
                 
                 <div className="flex items-center justify-between mb-5 cursor-pointer group">
                   <div className="flex items-center space-x-3">
-                    <div className="w-9 h-9 rounded-full bg-[#006241] flex items-center justify-center overflow-hidden shrink-0">
-                      {/* Starbucks placeholder */}
-                      <div className="w-5 h-5 rounded-full border-2 border-white/20 flex items-center justify-center">
-                        <div className="w-2.5 h-2.5 bg-white/50 rounded-full"></div>
-                      </div>
+                    <div className="w-9 h-9 rounded-full bg-black flex items-center justify-center overflow-hidden shrink-0">
+                      <img src={netflixLogo} alt="Netflix" className="w-9 h-9 object-cover" />
                     </div>
                     <div>
-                      <p className="text-white text-[12px] font-medium group-hover:text-gray-200 transition-colors">Starbucks</p>
+                      <p className="text-white text-[12px] font-medium group-hover:text-gray-200 transition-colors">Netflix</p>
                       <p className="text-gray-500 text-[9px]">Earned at 06:04 pm</p>
                     </div>
                   </div>
@@ -526,11 +525,11 @@ export default function App() {
 
                 <div className="flex items-center justify-between cursor-pointer group">
                   <div className="flex items-center space-x-3">
-                    <div className="w-9 h-9 rounded-full bg-[#ffb300] flex items-center justify-center overflow-hidden shrink-0">
-                      <span className="text-black font-bold text-[9px]">PVR</span>
+                    <div className="w-9 h-9 rounded-full bg-black flex items-center justify-center overflow-hidden shrink-0">
+                      <img src={spotifyLogo} alt="Spotify" className="w-9 h-9 object-cover" />
                     </div>
                     <div>
-                      <p className="text-white text-[12px] font-medium group-hover:text-gray-200 transition-colors">PVR</p>
+                      <p className="text-white text-[12px] font-medium group-hover:text-gray-200 transition-colors">Spotify</p>
                       <p className="text-gray-500 text-[9px]">Earned at 09:22 pm</p>
                     </div>
                   </div>

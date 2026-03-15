@@ -955,12 +955,12 @@ export default function App() {
             
             {/* Coins Row */}
             <div className="flex items-center justify-between relative z-10 px-4">
-              <img src="/ethereum-purple.avif" alt="Ethereum" className="w-16 h-16 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-12 group-hover:scale-110 transition-transform duration-500" />
-              <img src="/gold-dollar.avif" alt="Dollar" className="w-16 h-16 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-6 group-hover:scale-110 transition-transform duration-500" />
-              <img src={usdcLogo} alt="USDC" className="w-16 h-16 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-6 group-hover:scale-110 transition-transform duration-500" />
-              <img src="/gold-rectangle.avif" alt="Gold" className="w-14 h-20 rounded-md shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
-              <img src={solanaLogo} alt="Solana" className="w-16 h-16 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-12 group-hover:scale-110 transition-transform duration-500" />
-              <img src="/bitcoin-orange.avif" alt="Bitcoin" className="w-16 h-16 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/ethereum-coin.avif" alt="Ethereum" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/gold-dollar.avif" alt="Dollar" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-6 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/ethereum-purple.avif" alt="USDC" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-6 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/gold-rectangle.avif" alt="Gold" className="w-14 h-20 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/ethereum-coin-3d.avif" alt="Solana" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/bitcoin-orange.avif" alt="Bitcoin" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
             </div>
             
             {/* Subtle glow behind coins */}

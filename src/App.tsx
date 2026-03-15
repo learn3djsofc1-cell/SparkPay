@@ -417,7 +417,7 @@ export default function App() {
           
           {/* Left: Phone Mockup */}
           <div className="flex justify-center md:justify-start">
-            <div className="relative w-full max-w-[320px] h-[650px] bg-[#05050a] border border-[#2e3c5ea0] rounded-[2.5rem] shadow-[0_0_80px_rgba(155,81,224,0.3),0_0_80px_rgba(242,122,51,0.2)] overflow-hidden flex flex-col p-5">
+            <div className="relative w-full max-w-[320px] bg-[#05050a] border border-[#2e3c5ea0] rounded-[2.5rem] shadow-[0_0_80px_rgba(155,81,224,0.3),0_0_80px_rgba(242,122,51,0.2)] overflow-hidden flex flex-col p-5">
               
               {/* Card */}
               <div className="w-full h-48 rounded-2xl bg-gradient-to-br from-[#1a1a2e] to-[#000000] border border-gray-700 relative overflow-hidden mb-6 p-4 flex flex-col justify-between shadow-lg">
@@ -505,7 +505,7 @@ export default function App() {
               </div>
 
               {/* Transactions */}
-              <div className="flex-1 overflow-y-auto scrollbar-hide">
+              <div>
                 <p className="text-[9px] text-gray-500 font-medium mb-4">21 JAN, 2026</p>
                 
                 <div className="flex items-center justify-between mb-5 cursor-pointer group">
@@ -554,22 +554,13 @@ export default function App() {
               <li>• Grow credit - repay onchain loans and perform qualifying actions to increase FiScore.</li>
             </ul>
             
-            {/* Logos */}
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-6 opacity-80 grayscale">
-              <div className="flex items-center space-x-1.5">
-                <div className="w-5 h-5 rounded-full border-2 border-black flex items-center justify-center"><div className="w-2 h-2 bg-black rounded-full"></div></div>
-                <span className="font-bold text-[13px] tracking-widest">STARBUCKS</span>
-              </div>
-              <span className="font-black text-xl tracking-tighter">NETFLIX</span>
-              <span className="font-medium text-xl tracking-tight">Uber</span>
-              <div className="flex items-center space-x-1">
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 12h3v8h14v-8h3L12 2zm0 2.83L19.17 12H17v6H7v-6H4.83L12 4.83zM12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                <span className="font-bold text-[15px] tracking-tight">airbnb</span>
-              </div>
-              <div className="flex items-center space-x-1.5">
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 14.08c-.2.32-.64.44-.96.24-2.64-1.6-5.96-1.96-9.88-1.08-.36.08-.72-.16-.8-.52-.08-.36.16-.72.52-.8 4.28-.96 7.92-.56 10.88 1.24.32.2.44.64.24.96zm1.12-2.68c-.24.4-.76.52-1.16.28-3.04-1.88-7.68-2.44-11.08-1.32-.44.16-.92-.08-1.08-.52-.16-.44.08-.92.52-1.08 3.84-1.24 8.96-.6 12.4 1.52.4.24.52.76.28 1.16zm.08-2.8c-3.64-2.16-9.64-2.36-13.12-1.32-.52.16-1.08-.16-1.24-.68-.16-.52.16-1.08.68-1.24 4.04-1.16 10.68-.92 14.88 1.56.48.28.64.88.36 1.36-.28.48-.88.64-1.36.36z"/></svg>
-                <span className="font-bold text-[15px] tracking-tight">Spotify</span>
-              </div>
+            {/* Brand Names */}
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+              <span className="font-bold text-[13px] text-black tracking-widest">STARBUCKS</span>
+              <span className="font-black text-xl text-black tracking-tighter">NETFLIX</span>
+              <span className="font-medium text-xl text-black tracking-tight">Uber</span>
+              <span className="font-bold text-[15px] text-black tracking-tight">airbnb</span>
+              <span className="font-bold text-[15px] text-black tracking-tight">Spotify</span>
             </div>
           </div>
 

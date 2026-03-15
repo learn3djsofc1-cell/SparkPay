@@ -9,6 +9,8 @@ import bitcoinLogo from '@/attached_assets/bitcoin-btc-logo_(2)_1773565036546.pn
 import teslaLogo from '@/attached_assets/Tesla,_Inc.-Logomark-Black-Logo.wine_1773565051159.png';
 import goldLogo from '@/attached_assets/gold--big_1773565030735.png';
 import appleLogo from '@/attached_assets/747_1773565063041.png';
+import visaLogo from '@/attached_assets/Visa_Inc._logo_(2005–2014)_1773565441894.png';
+import mastercardLogo from '@/attached_assets/Mastercard-logo.svg_1773565441895.webp';
 
 export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -1035,47 +1037,10 @@ export default function App() {
             OUR PARTNERS
           </div>
           
-          <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-10 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            {/* sardi */}
-            <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 border-2 border-white transform rotate-45 flex items-center justify-center"><div className="w-1 h-1 bg-white rounded-full"></div></div>
-              <span className="text-white font-bold tracking-wider text-sm">sardi</span>
-            </div>
-            
-            {/* ETHERMAIL */}
-            <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 border-2 border-white rounded-md flex items-center justify-center"><span className="text-white text-[10px] font-bold">E</span></div>
-              <span className="text-white font-bold tracking-[0.2em] text-xs">ETHERMAIL</span>
-            </div>
-            
-            {/* BINANCE */}
-            <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 bg-yellow-500 rounded-sm transform rotate-45 flex items-center justify-center"><div className="w-2 h-2 bg-black transform -rotate-45"></div></div>
-              <span className="text-white font-bold tracking-wider text-sm">BINANCE</span>
-            </div>
-            
-            {/* router */}
-            <div className="flex items-center space-x-2">
-              <div className="w-4 h-6 border-l-2 border-b-2 border-white transform -skew-x-12"></div>
-              <span className="text-white font-bold tracking-wider text-sm lowercase">router</span>
-            </div>
-            
-            {/* LI.FI */}
-            <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 border-2 border-white transform rotate-45 flex items-center justify-center"><div className="w-3 h-3 bg-white"></div></div>
-              <span className="text-white font-bold tracking-wider text-sm">LI.FI</span>
-            </div>
-            
-            {/* B3 */}
-            <div className="flex items-center space-x-2">
-              <span className="text-white font-black text-xl tracking-tighter">B3</span>
-            </div>
-            
-            {/* sardi */}
-            <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 border-2 border-white transform rotate-45 flex items-center justify-center"><div className="w-1 h-1 bg-white rounded-full"></div></div>
-              <span className="text-white font-bold tracking-wider text-sm">sardi</span>
-            </div>
+          <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-10">
+            <img src={visaLogo} alt="Visa" className="h-10 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+            <img src={mastercardLogo} alt="Mastercard" className="h-10 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+            <img src={solanaLogo} alt="Solana" className="h-10 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
           </div>
         </div>
 

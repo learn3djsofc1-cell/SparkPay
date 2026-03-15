@@ -317,7 +317,7 @@ export default function App() {
                       <span className="text-2xl text-white font-medium">10</span>
                       <div className="flex items-center space-x-2 cursor-pointer bg-[#131b33] hover:bg-[#1e293b] transition-colors rounded-full pl-1 pr-2 py-1">
                         <img src={solanaLogo} alt="Solana" className="w-6 h-6 rounded-full border-2 border-[#0b1121]" />
-                        <span className="text-white text-[13px] font-medium">USDC</span>
+                        <span className="text-white text-[13px] font-medium">SOL</span>
                         <ChevronDown className="w-4 h-4 text-gray-400" />
                       </div>
                     </div>
@@ -335,10 +335,7 @@ export default function App() {
                     <div className="flex justify-between items-center mb-4">
                       <span className="text-2xl text-white font-medium">4.80%</span>
                       <div className="flex items-center space-x-2 cursor-pointer bg-[#131b33] hover:bg-[#1e293b] transition-colors rounded-full pl-1 pr-2 py-1">
-                        <div className="relative">
-                          <img src={usdcLogo} alt="USDC" className="w-6 h-6 rounded-full border-2 border-[#0b1121]" />
-                          <img src={solanaLogo} alt="Solana" className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full border-2 border-[#0b1121]" />
-                        </div>
+                        <img src={usdcLogo} alt="USDC" className="w-6 h-6 rounded-full border-2 border-[#0b1121]" />
                         <span className="text-white text-[13px] font-medium">USDC</span>
                         <ChevronDown className="w-4 h-4 text-gray-400" />
                       </div>

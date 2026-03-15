@@ -1292,7 +1292,7 @@ export default function App() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9b51e0] to-[#f27a33]">future of finance?</span>
           </h2>
           <p className="text-gray-400 text-[16px] md:text-[18px] leading-relaxed max-w-2xl mx-auto mb-12">
-            SparkPay is building the onchain global neobank — spend, save, and earn with crypto like never before. Be among the first to experience it.
+            SparkPay is building the onchain global neobank - spend, save, and earn with crypto like never before. Be among the first to experience it.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#" className="group bg-white text-black font-semibold px-8 py-4 rounded-full text-[15px] tracking-wide hover:bg-gray-100 transition-all flex items-center space-x-2 shadow-[0_0_30px_rgba(255,255,255,0.15)]">

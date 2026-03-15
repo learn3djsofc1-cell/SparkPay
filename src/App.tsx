@@ -1054,46 +1054,36 @@ export default function App() {
         </div>
 
         <div className="relative z-10 w-full text-center mb-16">
-          <h2 className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] font-bold text-white mb-4">Roadmap & Targets</h2>
-          <p className="text-gray-400 text-[15px]">Our goals for the future.</p>
+          <h2 className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] font-bold text-white mb-4">Our Tech</h2>
+          <p className="text-gray-400 text-[15px]">The technology powering SparkPay.</p>
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
           
-          {/* Stat 1 */}
           <div className="flex-1 w-full text-center py-12 relative">
-            <h3 className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] font-normal text-white leading-none mb-6 tracking-tight">2M+</h3>
-            <p className="text-white text-[15px] font-medium">Target App downloads</p>
-            {/* Vertical Divider (Desktop) */}
+            <h3 className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] font-normal text-white leading-none mb-6 tracking-tight">&lt;1s</h3>
+            <p className="text-white text-[15px] font-medium">Transaction Finality</p>
             <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-48 bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
-            {/* Horizontal Divider (Mobile) */}
             <div className="md:hidden absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           </div>
 
-          {/* Stat 2 */}
           <div className="flex-1 w-full text-center py-12 relative">
-            <h3 className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] font-normal text-white leading-none mb-6 tracking-tight">187</h3>
-            <p className="text-white text-[15px] font-medium">Countries Supported</p>
-            {/* Vertical Divider (Desktop) */}
+            <h3 className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] font-normal text-white leading-none mb-6 tracking-tight">65k+</h3>
+            <p className="text-white text-[15px] font-medium">TPS on Solana</p>
             <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-48 bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
-            {/* Horizontal Divider (Mobile) */}
             <div className="md:hidden absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           </div>
 
-          {/* Stat 3 */}
           <div className="flex-1 w-full text-center py-12 relative">
-            <h3 className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] font-normal text-white leading-none mb-6 tracking-tight">300k+</h3>
-            <p className="text-white text-[15px] font-medium">Target Active Wallets</p>
-            {/* Vertical Divider (Desktop) */}
+            <h3 className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] font-normal text-white leading-none mb-6 tracking-tight">256-bit</h3>
+            <p className="text-white text-[15px] font-medium">AES Encryption</p>
             <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-48 bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
-            {/* Horizontal Divider (Mobile) */}
             <div className="md:hidden absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           </div>
 
-          {/* Stat 4 */}
           <div className="flex-1 w-full text-center py-12 relative">
-            <h3 className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] font-normal text-white leading-none mb-6 tracking-tight">30k+</h3>
-            <p className="text-white text-[15px] font-medium">Target Card Sign-ups</p>
+            <h3 className="text-[4rem] sm:text-[5rem] md:text-[6.5rem] font-normal text-white leading-none mb-6 tracking-tight">$0.00</h3>
+            <p className="text-white text-[15px] font-medium">Gas Fees for Users</p>
           </div>
         </div>
       </section>

@@ -153,7 +153,7 @@ export default function DashboardLayout() {
               to={item.path}
               end={item.path === '/app'}
               className={({ isActive }) =>
-                `flex flex-col items-center space-y-1 px-3 py-1.5 rounded-xl transition-colors ${
+                `relative flex flex-col items-center space-y-1 px-3 py-1.5 rounded-xl transition-colors ${
                   isActive ? 'text-white' : 'text-gray-500'
                 }`
               }

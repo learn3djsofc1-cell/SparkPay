@@ -15,7 +15,9 @@ import mastercardLogo from '@/attached_assets/Mastercard-logo.svg_1773565441895.
 export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [textReveal, setTextReveal] = useState(0);
+  const [roadmapProgress, setRoadmapProgress] = useState(0);
   const overviewTextRef = useRef<HTMLDivElement>(null);
+  const roadmapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -33,6 +35,16 @@ export default function App() {
         const end = windowHeight * 0.25;
         const progress = Math.max(0, Math.min(1, (start - elementCenter) / (start - end)));
         setTextReveal(progress);
+      }
+      if (roadmapRef.current) {
+        const rect = roadmapRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const sectionTop = rect.top;
+        const sectionHeight = rect.height;
+        const scrolledInto = windowHeight - sectionTop;
+        const totalTravel = sectionHeight + windowHeight;
+        const progress = Math.max(0, Math.min(1, scrolledInto / totalTravel));
+        setRoadmapProgress(progress);
       }
     };
 
@@ -1109,33 +1121,30 @@ export default function App() {
         <div className="absolute bottom-[15%] right-[22%] w-8 h-8 bg-white/10 rotate-45"></div>
 
         <div className="text-center mb-32 relative z-10 pt-10">
-          <div className="inline-block bg-[#6b4c9a]/20 text-[#9b51e0] text-[11px] font-bold tracking-widest px-4 py-1.5 rounded-full mb-6">
-            🗺️ ROADMAP
-          </div>
           <h2 className="text-[3rem] sm:text-[3.5rem] md:text-[4.5rem] font-bold text-white tracking-tight">
             Roadmap <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9b51e0] to-[#f27a33]">2026</span>
           </h2>
         </div>
 
-        <div className="relative max-w-5xl mx-auto pb-32">
-          {/* Desktop Lines (hidden on mobile) */}
+        <div ref={roadmapRef} className="relative max-w-5xl mx-auto pb-32">
+          {/* Desktop Lines (hidden on mobile) - scroll animated */}
           <div className="hidden md:block">
-            {/* Line 1: Q1 to Q2 */}
-            <div className="absolute w-1 bg-gradient-to-b from-[#9b51e0] to-[#ec4899] shadow-[0_0_15px_rgba(236,72,153,0.5)] rounded-full" style={{ left: 'calc(10% + 30px)', top: '64px', height: '268px' }}></div>
-            <div className="absolute h-1 bg-[#ec4899] shadow-[0_0_15px_rgba(236,72,153,0.5)] rounded-full" style={{ left: 'calc(10% + 30px)', top: '332px', width: '50%' }}></div>
+            {/* Line 1: Q1 down to Q2 horizontal */}
+            <div className="absolute w-1 bg-gradient-to-b from-[#9b51e0] to-[#ec4899] shadow-[0_0_15px_rgba(236,72,153,0.5)] rounded-full origin-top transition-none" style={{ left: 'calc(10% + 30px)', top: '64px', height: '268px', transform: `scaleY(${Math.min(1, Math.max(0, (roadmapProgress - 0.08) / 0.12))})` }}></div>
+            <div className="absolute h-1 bg-[#ec4899] shadow-[0_0_15px_rgba(236,72,153,0.5)] rounded-full origin-left transition-none" style={{ left: 'calc(10% + 30px)', top: '332px', width: '50%', transform: `scaleX(${Math.min(1, Math.max(0, (roadmapProgress - 0.20) / 0.08))})` }}></div>
             
-            {/* Line 2: Q2 to Q3 */}
-            <div className="absolute w-1 bg-gradient-to-b from-[#ec4899] to-[#9b51e0] shadow-[0_0_15px_rgba(155,81,224,0.5)] rounded-full" style={{ left: 'calc(60% + 30px)', top: '364px', height: '118px' }}></div>
-            <div className="absolute h-1 bg-[#9b51e0] shadow-[0_0_15px_rgba(155,81,224,0.5)] rounded-full" style={{ left: 'calc(10% + 30px)', top: '482px', width: '50%' }}></div>
-            <div className="absolute w-1 bg-[#9b51e0] shadow-[0_0_15px_rgba(155,81,224,0.5)] rounded-full" style={{ left: 'calc(10% + 30px)', top: '482px', height: '118px' }}></div>
+            {/* Line 2: Q2 down, horizontal back, then down */}
+            <div className="absolute w-1 bg-gradient-to-b from-[#ec4899] to-[#9b51e0] shadow-[0_0_15px_rgba(155,81,224,0.5)] rounded-full origin-top transition-none" style={{ left: 'calc(60% + 30px)', top: '364px', height: '118px', transform: `scaleY(${Math.min(1, Math.max(0, (roadmapProgress - 0.28) / 0.08))})` }}></div>
+            <div className="absolute h-1 bg-[#9b51e0] shadow-[0_0_15px_rgba(155,81,224,0.5)] rounded-full origin-right transition-none" style={{ left: 'calc(10% + 30px)', top: '482px', width: '50%', transform: `scaleX(${Math.min(1, Math.max(0, (roadmapProgress - 0.36) / 0.08))})` }}></div>
+            <div className="absolute w-1 bg-[#9b51e0] shadow-[0_0_15px_rgba(155,81,224,0.5)] rounded-full origin-top transition-none" style={{ left: 'calc(10% + 30px)', top: '482px', height: '118px', transform: `scaleY(${Math.min(1, Math.max(0, (roadmapProgress - 0.44) / 0.08))})` }}></div>
             
-            {/* Line 3: Q3 to Q4 */}
-            <div className="absolute w-1 bg-gradient-to-b from-[#9b51e0] to-[#ec4899] shadow-[0_0_15px_rgba(236,72,153,0.5)] rounded-full" style={{ left: 'calc(10% + 30px)', top: '664px', height: '268px' }}></div>
-            <div className="absolute h-1 bg-[#ec4899] shadow-[0_0_15px_rgba(236,72,153,0.5)] rounded-full" style={{ left: 'calc(10% + 30px)', top: '932px', width: '50%' }}></div>
+            {/* Line 3: Q3 down to Q4 horizontal */}
+            <div className="absolute w-1 bg-gradient-to-b from-[#9b51e0] to-[#ec4899] shadow-[0_0_15px_rgba(236,72,153,0.5)] rounded-full origin-top transition-none" style={{ left: 'calc(10% + 30px)', top: '664px', height: '268px', transform: `scaleY(${Math.min(1, Math.max(0, (roadmapProgress - 0.52) / 0.12))})` }}></div>
+            <div className="absolute h-1 bg-[#ec4899] shadow-[0_0_15px_rgba(236,72,153,0.5)] rounded-full origin-left transition-none" style={{ left: 'calc(10% + 30px)', top: '932px', width: '50%', transform: `scaleX(${Math.min(1, Math.max(0, (roadmapProgress - 0.64) / 0.08))})` }}></div>
           </div>
 
-          {/* Mobile Line (hidden on desktop) */}
-          <div className="md:hidden absolute left-[46px] top-0 bottom-0 w-1 bg-gradient-to-b from-[#9b51e0] via-[#ec4899] to-[#f27a33] shadow-[0_0_15px_rgba(236,72,153,0.5)] rounded-full"></div>
+          {/* Mobile Line (hidden on desktop) - scroll animated */}
+          <div className="md:hidden absolute left-[46px] top-0 bottom-0 w-1 bg-gradient-to-b from-[#9b51e0] via-[#ec4899] to-[#f27a33] shadow-[0_0_15px_rgba(236,72,153,0.5)] rounded-full origin-top transition-none" style={{ transform: `scaleY(${Math.min(1, Math.max(0, (roadmapProgress - 0.05) / 0.7))})` }}></div>
 
           {/* Nodes and Cards */}
           <div className="relative z-10 flex flex-col md:block space-y-16 md:space-y-0 h-auto md:h-[1050px] px-4 md:px-0">

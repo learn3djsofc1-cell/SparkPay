@@ -20,6 +20,18 @@ export default defineConfig(({mode}) => {
       port: 5000,
       allowedHosts: true,
       hmr: process.env.DISABLE_HMR !== 'true',
+      watch: {
+        ignored: [
+          '**/node_modules/**',
+          '**/.local/**',
+          '**/.cache/**',
+          '**/.git/**',
+          '**/.agents/**',
+          '**/.replit',
+          '**/replit.md',
+          '**/tmp/**',
+        ],
+      },
     },
   };
 });

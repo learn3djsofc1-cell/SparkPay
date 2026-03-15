@@ -1209,140 +1209,27 @@ export default function App() {
         </div>
       </section>
 
-      {/* Section 10: Backed by Investors */}
-      <section className="relative z-10 py-32 px-4 bg-white min-h-screen flex flex-col items-center justify-center">
-        <div className="max-w-6xl mx-auto w-full">
-          <h2 className="text-[3rem] sm:text-[3.5rem] md:text-[4.5rem] font-medium text-black leading-[1.1] mb-24 text-center md:text-left">
-            Backed by<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9b51e0] to-[#f27a33]">leading Investors</span>
+      {/* Section 10: CTA */}
+      <section className="relative z-10 py-32 px-4 bg-[#05050a] flex flex-col items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-[80%] h-[50%] bg-gradient-to-r from-[#9b51e0]/20 via-[#f27a33]/15 to-[#9b51e0]/20 blur-[120px] rounded-[100%]"></div>
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h2 className="text-[3rem] sm:text-[3.5rem] md:text-[4.5rem] font-bold text-white tracking-tight mb-6">
+            Ready to join the<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9b51e0] to-[#f27a33]">future of finance?</span>
           </h2>
-
-          {/* Investors Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-y-20 gap-x-8 items-center justify-items-center opacity-80">
-            
-            {/* 6TH MAN VENTURES */}
-            <div className="flex flex-col items-center space-y-3">
-              <div className="relative w-12 h-14 bg-black flex items-center justify-center" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%)' }}>
-                <span className="text-white font-bold text-xl">6</span>
-                <span className="absolute bottom-1 right-0 text-white text-[8px] font-bold">MV</span>
-              </div>
-              <span className="text-black font-mono text-[10px] tracking-widest uppercase">6th Man Ventures</span>
-            </div>
-
-            {/* AYON CAPITAL */}
-            <div className="flex flex-col items-center space-y-3">
-              <div className="flex space-x-1">
-                <div className="w-3 h-10 border-l-4 border-t-4 border-black transform -skew-x-[30deg]"></div>
-                <div className="w-6 h-10 border-t-4 border-r-4 border-black transform skew-x-[30deg] relative">
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-black transform -skew-x-[30deg]"></div>
-                </div>
-              </div>
-              <span className="text-black font-mono text-[10px] tracking-widest uppercase">Ayon Capital</span>
-            </div>
-
-            {/* THE OPERATING GROUP */}
-            <div className="flex flex-col items-center space-y-3">
-              <div className="w-12 h-12 rounded-full border-4 border-[#1e3a8a] flex items-center justify-center relative">
-                <div className="w-8 h-8 rounded-full border-4 border-[#1e3a8a] border-r-transparent transform -rotate-45"></div>
-                <div className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-1 bg-[#1e3a8a]"></div>
-              </div>
-              <span className="text-black font-mono text-[10px] tracking-widest uppercase">The Operating Group</span>
-            </div>
-
-            {/* REFLEXIVE CAPITAL */}
-            <div className="flex flex-col items-center space-y-3">
-              <div className="relative w-10 h-12 flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full border border-black flex items-center justify-center">
-                  <div className="w-6 h-6 rounded-full border border-black flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full border border-black"></div>
-                  </div>
-                </div>
-                <div className="absolute bottom-0 w-px h-6 bg-black"></div>
-                <div className="absolute bottom-0 w-8 h-px bg-black"></div>
-                <div className="absolute bottom-0 w-px h-8 bg-black transform rotate-45 origin-bottom"></div>
-                <div className="absolute bottom-0 w-px h-8 bg-black transform -rotate-45 origin-bottom"></div>
-              </div>
-              <span className="text-black font-mono text-[10px] tracking-widest uppercase">Reflexive Capital</span>
-            </div>
-
-            {/* FOLIUS VENTURES */}
-            <div className="flex flex-col items-center space-y-3">
-              <div className="grid grid-cols-3 grid-rows-3 gap-0.5 w-12 h-12 border border-black p-0.5">
-                {[...Array(9)].map((_, i) => (
-                  <div key={i} className="border border-black relative overflow-hidden">
-                    {i % 2 === 0 && <div className="absolute inset-0 border-t border-black transform rotate-45 origin-top-left scale-150"></div>}
-                  </div>
-                ))}
-              </div>
-              <span className="text-black font-mono text-[10px] tracking-widest uppercase">Folius Ventures</span>
-            </div>
-
-            {/* CYPHER CAPITAL */}
-            <div className="flex flex-col items-center space-y-2">
-              <div className="flex flex-col items-center">
-                <div className="flex space-x-1 mb-1">
-                  <div className="w-4 h-4 border-2 border-black transform rotate-45 border-r-0 border-b-0"></div>
-                  <div className="w-4 h-4 border-2 border-black transform rotate-45 border-l-0 border-b-0"></div>
-                </div>
-                <div className="flex space-x-1">
-                  <div className="w-4 h-4 border-2 border-black transform rotate-45 border-r-0 border-t-0"></div>
-                  <div className="w-4 h-4 border-2 border-black transform rotate-45 border-l-0 border-t-0"></div>
-                </div>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-black font-bold text-[11px] tracking-widest uppercase">Cypher</span>
-                <div className="flex items-center space-x-1">
-                  <div className="w-2 h-px bg-black"></div>
-                  <span className="text-black text-[7px] tracking-widest uppercase">Capital</span>
-                  <div className="w-2 h-px bg-black"></div>
-                </div>
-              </div>
-            </div>
-
-            {/* Sfermion */}
-            <div className="flex flex-col items-center">
-              <div className="border border-black px-4 py-2">
-                <span className="text-black font-mono text-xl tracking-widest">Sfermion</span>
-              </div>
-            </div>
-
-            {/* ACCOMPLICE */}
-            <div className="flex flex-col items-center space-y-2">
-              <div className="relative w-10 h-10 flex items-center justify-center">
-                <div className="absolute w-8 h-8 rounded-full border border-black"></div>
-                <span className="text-black font-serif text-2xl italic">A</span>
-                <div className="absolute w-10 h-px bg-black transform -rotate-45"></div>
-              </div>
-              <span className="text-gray-400 font-mono text-[10px] tracking-[0.3em] uppercase" style={{ textShadow: '1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 0 0 2px rgba(0,0,0,0.2)' }}>Accomplice</span>
-            </div>
-
-            {/* CMCC Global */}
-            <div className="flex flex-col items-center space-y-2">
-              <div className="grid grid-cols-3 gap-1 w-10 h-10">
-                <div className="bg-transparent"></div>
-                <div className="bg-transparent"></div>
-                <div className="bg-black"></div>
-                <div className="bg-black"></div>
-                <div className="bg-black"></div>
-                <div className="bg-black"></div>
-                <div className="bg-black"></div>
-                <div className="bg-black"></div>
-                <div className="bg-black"></div>
-              </div>
-              <span className="text-black font-sans text-[10px] tracking-wide">CMCC Global</span>
-            </div>
-
-            {/* sigma capital */}
-            <div className="flex items-center space-x-2">
-              <div className="flex flex-col justify-between h-6 w-4">
-                <div className="w-full h-0.5 bg-black transform origin-left rotate-[30deg]"></div>
-                <div className="w-full h-0.5 bg-black transform origin-left -rotate-[30deg]"></div>
-                <div className="w-full h-0.5 bg-black transform origin-left rotate-[30deg]"></div>
-                <div className="w-full h-0.5 bg-black transform origin-left -rotate-[30deg]"></div>
-              </div>
-              <span className="text-black font-bold text-[14px] tracking-tight">sigma capital</span>
-            </div>
-
+          <p className="text-gray-400 text-[16px] md:text-[18px] leading-relaxed max-w-2xl mx-auto mb-12">
+            SparkPay is building the onchain global neobank — spend, save, and earn with crypto like never before. Be among the first to experience it.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#" className="group bg-white text-black font-semibold px-8 py-4 rounded-full text-[15px] tracking-wide hover:bg-gray-100 transition-all flex items-center space-x-2 shadow-[0_0_30px_rgba(255,255,255,0.15)]">
+              <span>Get Early Access</span>
+              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a href="#" className="text-gray-300 font-medium px-8 py-4 rounded-full text-[15px] tracking-wide border border-gray-700 hover:border-gray-500 hover:text-white transition-all">
+              Read the Docs
+            </a>
           </div>
         </div>
       </section>
@@ -1460,7 +1347,7 @@ export default function App() {
           <div className="flex items-center space-x-3 mb-4 md:mb-0">
             <img src={sparkPayLogo} alt="SparkPay" className="w-7 h-7" />
             <span className="text-gray-400 text-[11px] font-medium">
-              © 2025 - 2026 SparkPay Inc. All rights reserved
+              © 2026 SparkPay Inc. All rights reserved
             </span>
           </div>
 
@@ -1473,22 +1360,7 @@ export default function App() {
           {/* Social Icons */}
           <div className="flex items-center space-x-3">
             <a href="#" className="w-10 h-10 rounded-lg bg-[#15151a] border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1f1f26] transition-all">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
-            </a>
-            <a href="#" className="w-10 h-10 rounded-lg bg-[#15151a] border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1f1f26] transition-all">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-            </a>
-            <a href="#" className="w-10 h-10 rounded-lg bg-[#15151a] border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1f1f26] transition-all">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="#" className="w-10 h-10 rounded-lg bg-[#15151a] border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1f1f26] transition-all">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-            </a>
-            <a href="#" className="w-10 h-10 rounded-lg bg-[#15151a] border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1f1f26] transition-all">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
-            <a href="#" className="w-10 h-10 rounded-lg bg-[#15151a] border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1f1f26] transition-all">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
           </div>
         </footer>

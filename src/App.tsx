@@ -406,9 +406,6 @@ export default function App() {
 
           {/* Right: Text Content */}
           <div className="max-w-md md:pl-8">
-            <div className="inline-block bg-gradient-to-r from-[#e5b2ca] to-[#cdb4db] text-[#1a1025] text-[11px] font-bold tracking-widest px-4 py-1.5 rounded-full mb-6">
-              🛠️ PRODUCT
-            </div>
             <h2 className="text-[2.5rem] md:text-[3rem] leading-[1.1] font-bold mb-6 text-black">
               Web dApp <span className="text-transparent bg-clip-text bg-gradient-to-r from-black via-gray-400 to-gray-300">Dashboard</span>
             </h2>
@@ -579,9 +576,6 @@ export default function App() {
 
           {/* Right: Text Content */}
           <div className="max-w-md md:pl-8">
-            <div className="inline-block bg-[#6b4c9a]/20 text-[#311b5e] text-[11px] font-bold tracking-widest px-4 py-1.5 rounded-full mb-6">
-              ⚙️ HOW IT WORKS
-            </div>
             <h2 className="text-[2.5rem] md:text-[3rem] leading-[1.1] font-bold mb-6 text-black">
               A simple, high-level overview of the <span className="text-transparent bg-clip-text bg-gradient-to-r from-black via-gray-400 to-transparent">SparkPay ecosystem</span>
             </h2>
@@ -792,9 +786,6 @@ export default function App() {
 
           {/* Right: Text Content */}
           <div className="max-w-md md:pl-8">
-            <div className="inline-block bg-[#6b4c9a]/20 text-[#311b5e] text-[11px] font-bold tracking-widest px-4 py-1.5 rounded-full mb-6">
-              🛡️ SECURITY, PRIVACY & COMPLIANCE
-            </div>
             <h2 className="text-[2.5rem] md:text-[3rem] leading-[1.1] font-bold mb-6 text-black">
               Enterprise-grade security with <span className="text-transparent bg-clip-text bg-gradient-to-r from-black via-gray-400 to-transparent">default self-custody</span>
             </h2>
@@ -977,9 +968,6 @@ export default function App() {
 
           {/* Right: Text Content */}
           <div className="max-w-md md:pl-8">
-            <div className="inline-block bg-[#6b4c9a]/20 text-[#311b5e] text-[11px] font-bold tracking-widest px-4 py-1.5 rounded-full mb-6">
-              🚀 TARGET AUDIENCE
-            </div>
             <h2 className="text-[2.5rem] md:text-[3rem] leading-[1.1] font-bold mb-6 text-black">
               Who SparkPay is <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9b51e0] to-[#f27a33]">built for</span>
             </h2>

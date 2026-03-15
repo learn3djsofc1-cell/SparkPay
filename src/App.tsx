@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Volume2, ChevronRight, Signal, Wifi, Battery, MoreVertical, ChevronLeft, Fingerprint, Menu, ChevronDown, X, ArrowLeftRight, Gift, Info, ArrowUpRight, ArrowDown, Repeat, Plus, TrendingUp, Bitcoin, Apple } from 'lucide-react';
+import sparkPayLogo from '@/attached_assets/Frame_1171275126_1773561837325.png';
 
 export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -48,8 +49,8 @@ export default function App() {
 
       {/* Navbar */}
       <nav className="relative z-50 flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full">
-        <div className="flex items-center">
-          {/* Logo */}
+        <div className="flex items-center space-x-3">
+          <img src={sparkPayLogo} alt="SparkPay" className="w-10 h-10" />
           <span className="text-4xl font-black tracking-tighter lowercase">SparkPay</span>
         </div>
         
@@ -188,6 +189,9 @@ export default function App() {
           className="relative z-20 text-center mt-16 max-w-4xl mx-auto transition-transform duration-300 ease-out"
           style={{ transform: `translate(${mousePos.x * 15}px, ${mousePos.y * 15}px)` }}
         >
+          <div className="flex justify-center mb-8">
+            <img src={sparkPayLogo} alt="SparkPay" className="w-16 h-16 md:w-20 md:h-20" />
+          </div>
           <h1 className="text-[3.5rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] leading-[1.05] font-bold tracking-tight mb-12 uppercase">
             The Global Neobank<br />Built Onchain
           </h1>
@@ -1624,9 +1628,12 @@ export default function App() {
         {/* Footer */}
         <footer className="relative z-30 bg-[#0a0a0f] py-8 px-8 flex flex-col md:flex-row items-center justify-between border-t border-gray-800/50">
           
-          {/* Copyright */}
-          <div className="text-gray-400 text-[11px] font-medium mb-4 md:mb-0">
-            © 2025 - 2026 SparkPay Inc. All rights reserved
+          {/* Logo + Copyright */}
+          <div className="flex items-center space-x-3 mb-4 md:mb-0">
+            <img src={sparkPayLogo} alt="SparkPay" className="w-7 h-7" />
+            <span className="text-gray-400 text-[11px] font-medium">
+              © 2025 - 2026 SparkPay Inc. All rights reserved
+            </span>
           </div>
 
           {/* Links */}

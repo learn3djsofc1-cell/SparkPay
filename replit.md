@@ -15,11 +15,14 @@ A visually rich React + Vite landing page for SparkPay, a fictional onchain glob
 ## Project Structure
 ```
 /
+├── attached_assets/   # Brand assets (logo source)
+├── public/
+│   └── favicon.png    # Browser tab favicon
 ├── src/
 │   ├── App.tsx        # Main application component (single-page layout)
 │   ├── main.tsx       # React entry point
 │   └── index.css      # Global styles
-├── index.html         # HTML entry point
+├── index.html         # HTML entry point (favicon + title configured)
 ├── vite.config.ts     # Vite configuration (port 5000, allowedHosts: true)
 ├── package.json       # Dependencies and scripts
 └── tsconfig.json      # TypeScript configuration

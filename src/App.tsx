@@ -277,22 +277,155 @@ export default function App() {
         <div className="absolute top-[35%] right-[12%] w-12 h-12 bg-white/20 rotate-45 backdrop-blur-sm"></div>
         <div className="absolute bottom-[35%] right-[20%] w-8 h-8 bg-black/10 rotate-45 backdrop-blur-sm"></div>
 
-        <div className="max-w-3xl mx-auto w-full relative z-10 text-center">
-          <h2 className="text-[2.5rem] md:text-[3rem] leading-[1.1] font-bold mb-6 text-black">
-            Web dApp <span className="text-transparent bg-clip-text bg-gradient-to-r from-black via-gray-400 to-gray-300">Dashboard</span>
-          </h2>
-          <p className="text-gray-500 text-[17px] font-medium mb-8">
-            Manage your finances from a single, powerful interface.
-          </p>
-          <ul className="text-gray-600 text-[15px] space-y-2 text-left max-w-md mx-auto">
-            <li>• Unified Dashboard Home</li>
-            <li>• Cards Panel</li>
-            <li>• Earn & Rewards Center</li>
-            <li>• Invest Hub</li>
-            <li>• Borrow Desk</li>
-            <li>• Security & Sessions</li>
-            <li>• Exports & Integrations</li>
-          </ul>
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
+          
+          {/* Left: Phone Mockup */}
+          <div className="flex justify-center md:justify-end">
+            <div className="relative w-full max-w-[320px] h-[650px] bg-[#020817] border border-[#2e3c5ea0] rounded-[2.5rem] shadow-[0_0_80px_rgba(59,130,246,0.15)] overflow-hidden flex flex-col">
+              {/* Top Bar */}
+              <div className="flex items-center justify-between px-5 pt-6 pb-4">
+                <div className="flex space-x-2">
+                  <div className="flex items-center space-x-1.5 bg-[#131b33] border border-[#2a3454] rounded-full px-2.5 py-1.5 cursor-pointer">
+                    <div className="w-3.5 h-3.5 bg-[#4c6ee6] rounded-full flex items-center justify-center">
+                       <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                    </div>
+                    <span className="text-[11px] text-white font-medium">Base</span>
+                    <ChevronDown className="w-3 h-3 text-gray-400" />
+                  </div>
+                  <div className="flex items-center space-x-1.5 bg-[#131b33] border border-[#2a3454] rounded-full px-2.5 py-1.5 cursor-pointer">
+                    <div className="w-3.5 h-3.5 bg-[#f27a33] rounded-full flex items-center justify-center">
+                       <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                    </div>
+                    <span className="text-[11px] text-white font-medium">0xD...43c9</span>
+                    <ChevronDown className="w-3 h-3 text-gray-400" />
+                  </div>
+                </div>
+                <X className="w-5 h-5 text-gray-400 cursor-pointer hover:text-white transition-colors" />
+              </div>
+
+              {/* Tabs */}
+              <div className="flex space-x-6 px-6 border-b border-[#1e293b]">
+                <div className="text-white text-[13px] font-semibold pb-3 border-b-2 border-white cursor-pointer">Earn</div>
+                <div className="text-gray-500 hover:text-gray-300 transition-colors text-[13px] font-medium pb-3 cursor-pointer">Manage</div>
+                <div className="text-gray-500 hover:text-gray-300 transition-colors text-[13px] font-medium pb-3 cursor-pointer">Activity</div>
+              </div>
+
+              <div className="flex-1 overflow-y-auto px-5 py-6 space-y-6 pb-24 scrollbar-hide">
+                {/* VAULT */}
+                <div>
+                  <h3 className="text-[10px] font-bold text-gray-400 tracking-wider mb-2">VAULT</h3>
+                  <div className="bg-[#0b1121] border border-[#1e293b] rounded-2xl p-4">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-2xl text-white font-medium">10</span>
+                      <div className="flex items-center space-x-2 cursor-pointer bg-[#131b33] hover:bg-[#1e293b] transition-colors rounded-full pl-1 pr-2 py-1">
+                        <div className="relative">
+                          <div className="w-6 h-6 bg-[#2775ca] rounded-full flex items-center justify-center text-white text-[10px] font-bold border-2 border-[#0b1121]">
+                            $
+                          </div>
+                          <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-blue-500 rounded-full border-2 border-[#0b1121]"></div>
+                        </div>
+                        <span className="text-white text-[13px] font-medium">USDC</span>
+                        <ChevronDown className="w-4 h-4 text-gray-400" />
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs text-gray-500">$0</span>
+                      <span className="text-[10px] text-gray-400">0 ETH Available</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* EARN */}
+                <div>
+                  <h3 className="text-[10px] font-bold text-gray-400 tracking-wider mb-2">EARN</h3>
+                  <div className="bg-[#0b1121] border border-[#1e293b] rounded-2xl p-4">
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="text-2xl text-white font-medium">4.80%</span>
+                      <div className="flex items-center space-x-2 cursor-pointer bg-[#131b33] hover:bg-[#1e293b] transition-colors rounded-full pl-1 pr-2 py-1">
+                        <div className="relative">
+                          <div className="w-6 h-6 bg-[#ccff00] rounded-full flex items-center justify-center text-black text-[10px] font-bold border-2 border-[#0b1121]">
+                            $
+                          </div>
+                          <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-blue-500 rounded-full border-2 border-[#0b1121]"></div>
+                        </div>
+                        <span className="text-white text-[13px] font-medium">USDC</span>
+                        <ChevronDown className="w-4 h-4 text-gray-400" />
+                      </div>
+                    </div>
+                    
+                    <div className="bg-[#1e293b]/40 rounded-lg p-2.5 mb-4">
+                      <p className="text-[11px] text-gray-400">
+                        You'll receive <span className="text-white font-medium">vyoUSD</span> via YO Protocol
+                      </p>
+                    </div>
+
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-[11px] text-gray-400">Yearly</span>
+                        <span className="text-[11px] text-gray-300">0 USDC</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-[11px] text-gray-400">Monthly</span>
+                        <span className="text-[11px] text-gray-300">0 USDC</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Info List */}
+                <div className="space-y-4 pt-2">
+                  <div className="flex items-start space-x-3">
+                    <ArrowLeftRight className="w-4 h-4 text-gray-500 mt-0.5 shrink-0" />
+                    <p className="text-[10px] text-gray-400 leading-relaxed">
+                      When you deposit USDC you'll receive vyoUSD. This token accumulates yield and represents your share in the vault.
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Gift className="w-4 h-4 text-gray-500 mt-0.5 shrink-0" />
+                    <p className="text-[10px] text-gray-400 leading-relaxed">
+                      Earned yield is updated each block and accrues automatically
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Info className="w-4 h-4 text-gray-500 mt-0.5 shrink-0" />
+                    <p className="text-[10px] text-gray-400 leading-relaxed">
+                      When withdrawing it takes 1 day for your assets will be available
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Button */}
+              <div className="p-5 bg-gradient-to-t from-[#020817] via-[#020817] to-transparent absolute bottom-0 left-0 right-0 z-10">
+                <button className="w-full bg-white hover:bg-gray-100 text-black font-semibold py-3.5 rounded-xl text-[15px] transition-colors">
+                  Deposit
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Text Content */}
+          <div className="max-w-md md:pl-8">
+            <div className="inline-block bg-gradient-to-r from-[#e5b2ca] to-[#cdb4db] text-[#1a1025] text-[11px] font-bold tracking-widest px-4 py-1.5 rounded-full mb-6">
+              🛠️ PRODUCT
+            </div>
+            <h2 className="text-[2.5rem] md:text-[3rem] leading-[1.1] font-bold mb-6 text-black">
+              Web dApp <span className="text-transparent bg-clip-text bg-gradient-to-r from-black via-gray-400 to-gray-300">Dashboard</span>
+            </h2>
+            <p className="text-gray-500 text-[17px] font-medium mb-6">
+              Manage your finances from a single, powerful interface.
+            </p>
+            <ul className="text-gray-600 text-[15px] space-y-2">
+              <li>• Unified Dashboard Home</li>
+              <li>• Cards Panel</li>
+              <li>• Earn & Rewards Center</li>
+              <li>• Invest Hub</li>
+              <li>• Borrow Desk</li>
+              <li>• Security & Sessions</li>
+              <li>• Exports & Integrations</li>
+            </ul>
+          </div>
+
         </div>
       </section>
 

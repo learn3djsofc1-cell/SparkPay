@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Volume2, ChevronRight, Signal, Wifi, Battery, MoreVertical, ChevronLeft, Fingerprint, Menu, ChevronDown, X, ArrowLeftRight, Gift, Info, ArrowUpRight, ArrowDown, Repeat, Plus, TrendingUp, Bitcoin, Apple } from 'lucide-react';
+import { Volume2, ChevronRight, Signal, Wifi, Battery, MoreVertical, ChevronLeft, Fingerprint, Menu, ChevronDown, X, ArrowLeftRight, ArrowUpRight, ArrowDown, Repeat, Plus, TrendingUp, Bitcoin, Apple } from 'lucide-react';
 import sparkPayLogo from '@/attached_assets/Frame_1171275126_1773561837325.png';
+import solanaLogo from '@/attached_assets/solana-sol-logo_(17)_1773564269930.png';
+import usdcLogo from '@/attached_assets/usd-coin-usdc-logo_(5)_1773564245249.png';
 
 export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -281,22 +283,18 @@ export default function App() {
           
           {/* Left: Phone Mockup */}
           <div className="flex justify-center md:justify-end">
-            <div className="relative w-full max-w-[320px] h-[650px] bg-[#020817] border border-[#2e3c5ea0] rounded-[2.5rem] shadow-[0_0_80px_rgba(59,130,246,0.15)] overflow-hidden flex flex-col">
+            <div className="relative w-full max-w-[320px] bg-[#020817] border border-[#2e3c5ea0] rounded-[2.5rem] shadow-[0_0_80px_rgba(59,130,246,0.15)] overflow-hidden flex flex-col">
               {/* Top Bar */}
               <div className="flex items-center justify-between px-5 pt-6 pb-4">
                 <div className="flex space-x-2">
                   <div className="flex items-center space-x-1.5 bg-[#131b33] border border-[#2a3454] rounded-full px-2.5 py-1.5 cursor-pointer">
-                    <div className="w-3.5 h-3.5 bg-[#4c6ee6] rounded-full flex items-center justify-center">
-                       <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-[11px] text-white font-medium">Base</span>
+                    <img src={solanaLogo} alt="Solana" className="w-3.5 h-3.5" />
+                    <span className="text-[11px] text-white font-medium">Solana</span>
                     <ChevronDown className="w-3 h-3 text-gray-400" />
                   </div>
                   <div className="flex items-center space-x-1.5 bg-[#131b33] border border-[#2a3454] rounded-full px-2.5 py-1.5 cursor-pointer">
-                    <div className="w-3.5 h-3.5 bg-[#f27a33] rounded-full flex items-center justify-center">
-                       <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-[11px] text-white font-medium">0xD...43c9</span>
+                    <img src={solanaLogo} alt="Solana" className="w-3.5 h-3.5" />
+                    <span className="text-[11px] text-white font-medium">7xK...9f2D</span>
                     <ChevronDown className="w-3 h-3 text-gray-400" />
                   </div>
                 </div>
@@ -310,7 +308,7 @@ export default function App() {
                 <div className="text-gray-500 hover:text-gray-300 transition-colors text-[13px] font-medium pb-3 cursor-pointer">Activity</div>
               </div>
 
-              <div className="flex-1 overflow-y-auto px-5 py-6 space-y-6 pb-24 scrollbar-hide">
+              <div className="px-5 py-6 space-y-6 pb-24">
                 {/* VAULT */}
                 <div>
                   <h3 className="text-[10px] font-bold text-gray-400 tracking-wider mb-2">VAULT</h3>
@@ -318,19 +316,14 @@ export default function App() {
                     <div className="flex justify-between items-center mb-1">
                       <span className="text-2xl text-white font-medium">10</span>
                       <div className="flex items-center space-x-2 cursor-pointer bg-[#131b33] hover:bg-[#1e293b] transition-colors rounded-full pl-1 pr-2 py-1">
-                        <div className="relative">
-                          <div className="w-6 h-6 bg-[#2775ca] rounded-full flex items-center justify-center text-white text-[10px] font-bold border-2 border-[#0b1121]">
-                            $
-                          </div>
-                          <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-blue-500 rounded-full border-2 border-[#0b1121]"></div>
-                        </div>
+                        <img src={usdcLogo} alt="USDC" className="w-6 h-6 rounded-full border-2 border-[#0b1121]" />
                         <span className="text-white text-[13px] font-medium">USDC</span>
                         <ChevronDown className="w-4 h-4 text-gray-400" />
                       </div>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-xs text-gray-500">$0</span>
-                      <span className="text-[10px] text-gray-400">0 ETH Available</span>
+                      <span className="text-[10px] text-gray-400">0 SOL Available</span>
                     </div>
                   </div>
                 </div>
@@ -342,12 +335,7 @@ export default function App() {
                     <div className="flex justify-between items-center mb-4">
                       <span className="text-2xl text-white font-medium">4.80%</span>
                       <div className="flex items-center space-x-2 cursor-pointer bg-[#131b33] hover:bg-[#1e293b] transition-colors rounded-full pl-1 pr-2 py-1">
-                        <div className="relative">
-                          <div className="w-6 h-6 bg-[#ccff00] rounded-full flex items-center justify-center text-black text-[10px] font-bold border-2 border-[#0b1121]">
-                            $
-                          </div>
-                          <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-blue-500 rounded-full border-2 border-[#0b1121]"></div>
-                        </div>
+                        <img src={usdcLogo} alt="USDC" className="w-6 h-6 rounded-full border-2 border-[#0b1121]" />
                         <span className="text-white text-[13px] font-medium">USDC</span>
                         <ChevronDown className="w-4 h-4 text-gray-400" />
                       </div>
@@ -369,28 +357,6 @@ export default function App() {
                         <span className="text-[11px] text-gray-300">0 USDC</span>
                       </div>
                     </div>
-                  </div>
-                </div>
-
-                {/* Info List */}
-                <div className="space-y-4 pt-2">
-                  <div className="flex items-start space-x-3">
-                    <ArrowLeftRight className="w-4 h-4 text-gray-500 mt-0.5 shrink-0" />
-                    <p className="text-[10px] text-gray-400 leading-relaxed">
-                      When you deposit USDC you'll receive vyoUSD. This token accumulates yield and represents your share in the vault.
-                    </p>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <Gift className="w-4 h-4 text-gray-500 mt-0.5 shrink-0" />
-                    <p className="text-[10px] text-gray-400 leading-relaxed">
-                      Earned yield is updated each block and accrues automatically
-                    </p>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <Info className="w-4 h-4 text-gray-500 mt-0.5 shrink-0" />
-                    <p className="text-[10px] text-gray-400 leading-relaxed">
-                      When withdrawing it takes 1 day for your assets will be available
-                    </p>
                   </div>
                 </div>
               </div>

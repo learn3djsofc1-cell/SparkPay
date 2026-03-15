@@ -24,3 +24,34 @@
   animation: float 6s ease-in-out infinite;
 }
 
+@keyframes phone-float {
+  0%, 100% { transform: translateY(0) rotateY(15deg) rotateZ(-5deg); }
+  50% { transform: translateY(-15px) rotateY(15deg) rotateZ(-5deg); }
+}
+
+.animate-phone-float {
+  animation: phone-float 5s ease-in-out infinite;
+}
+
+@keyframes phone-float-left {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-phone-float-left {
+  animation: phone-float-left 5.5s ease-in-out infinite;
+}
+
+@keyframes phone-float-hero {
+  0%, 100% { transform: rotateX(15deg) rotateY(-12deg) rotateZ(4deg) scale(1.05) translateY(0); }
+  50% { transform: rotateX(15deg) rotateY(-12deg) rotateZ(4deg) scale(1.05) translateY(-18px); }
+}
+
+.animate-phone-float-hero {
+  animation: phone-float-hero 6s ease-in-out infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+

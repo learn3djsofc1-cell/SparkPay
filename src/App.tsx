@@ -1,5 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { Volume2, ChevronRight, Signal, Wifi, Battery, MoreVertical, ChevronLeft, Fingerprint, Menu, ChevronDown, X, ArrowLeftRight, ArrowUpRight, ArrowDown, Repeat, Plus, TrendingUp } from 'lucide-react';
+
+function AnimatedSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 60 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
 import sparkPayLogo from '@/attached_assets/Frame_1171275126_1773561837325.png';
 import solanaLogo from '@/attached_assets/solana-sol-logo_(17)_1773564269930.png';
 import usdcLogo from '@/attached_assets/usd-coin-usdc-logo_(5)_1773564245249.png';
@@ -16,8 +33,30 @@ export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [textReveal, setTextReveal] = useState(0);
   const [roadmapProgress, setRoadmapProgress] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const overviewTextRef = useRef<HTMLDivElement>(null);
+  const chartBarHeights = useMemo(() => Array.from({ length: 40 }, (_, i) => 20 + Math.random() * 30 + (i > 20 ? 20 : 0)), []);
   const roadmapRef = useRef<HTMLDivElement>(null);
+
+  const navLinks = [
+    { label: 'Overview', href: '#overview' },
+    { label: 'Product', href: '#product' },
+    { label: 'How It Works', href: '#how-it-works' },
+    { label: 'Security', href: '#security' },
+    { label: 'Features', href: '#features' },
+    { label: 'Our Tech', href: '#tech' },
+    { label: 'Roadmap', href: '#roadmap' },
+  ];
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false);
+    }
+  };
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -64,43 +103,65 @@ export default function App() {
       <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] bg-[#0066ff]/15 rounded-full blur-[140px] -translate-y-1/2 pointer-events-none"></div>
 
       {/* Navbar */}
-      <nav className="relative z-50 flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full">
-        <div className="flex items-center space-x-3">
-          <img src={sparkPayLogo} alt="SparkPay" className="w-10 h-10" />
-          <span className="text-4xl font-black tracking-tighter lowercase">SparkPay</span>
-        </div>
-        
-        <div className="hidden md:flex items-center space-x-8 text-[15px] font-semibold text-gray-100">
-          <a href="#overview" className="hover:text-white transition-colors">Overview</a>
-          <a href="#features" className="hover:text-white transition-colors">Features</a>
-          <a href="#product" className="hover:text-white transition-colors">Product</a>
-          <a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a>
-          <a href="#security" className="hover:text-white transition-colors">Security</a>
-          <a href="#roadmap" className="hover:text-white transition-colors">Roadmap</a>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/5">
+        <div className="flex items-center justify-between px-4 sm:px-8 py-4 max-w-7xl mx-auto w-full">
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center space-x-2 sm:space-x-3">
+            <img src={sparkPayLogo} alt="SparkPay" className="w-8 h-8 sm:w-10 sm:h-10" />
+            <span className="text-2xl sm:text-4xl font-black tracking-tighter lowercase">SparkPay</span>
+          </a>
+          
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-[14px] font-semibold text-gray-300">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} onClick={(e) => scrollToSection(e, link.href)} className="hover:text-white transition-colors">
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="flex items-center space-x-3">
+            <a href="#" className="hidden sm:flex items-center space-x-2 bg-white text-black font-semibold px-5 py-2.5 rounded-full text-[14px] hover:bg-gray-100 transition-colors">
+              <span>Launch App</span>
+              <ChevronRight className="w-4 h-4" />
+            </a>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full border border-gray-800 bg-[#111] hover:bg-[#1a1a1a] transition-colors"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
 
-        <div className="flex items-center space-x-4">
-          <button className="flex items-center space-x-3 bg-[#111] hover:bg-[#1a1a1a] border border-gray-800 px-5 py-2.5 rounded-full text-[15px] font-semibold transition-colors">
-            <span>Open dApp</span>
-            {/* Custom Play Icon */}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 3L19 12L5 21V3Z" fill="url(#paint0_linear)" />
-              <defs>
-                <linearGradient id="paint0_linear" x1="5" y1="3" x2="19" y2="21" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#4285F4" />
-                  <stop offset="0.33" stopColor="#34A853" />
-                  <stop offset="0.66" stopColor="#FBBC05" />
-                  <stop offset="1" stopColor="#EA4335" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </button>
-          {/* Hamburger Menu */}
-          <button className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-800 bg-[#111] hover:bg-[#1a1a1a] transition-colors">
-            <Menu className="w-5 h-5" />
-          </button>
-        </div>
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/5 overflow-hidden"
+          >
+            <div className="flex flex-col px-6 py-4 space-y-1">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => scrollToSection(e, link.href)}
+                  className="text-gray-300 hover:text-white text-[16px] font-medium py-3 border-b border-white/5 transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a href="#" className="flex items-center justify-center space-x-2 bg-white text-black font-semibold px-5 py-3 rounded-full text-[15px] mt-4 hover:bg-gray-100 transition-colors sm:hidden">
+                <span>Launch App</span>
+                <ChevronRight className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
+        )}
       </nav>
+
+      {/* Navbar Spacer */}
+      <div className="h-[72px]"></div>
 
       {/* Main Hero */}
       <main className="relative z-10 flex-1 flex flex-col items-center justify-center pt-10 pb-32 px-4">
@@ -121,9 +182,8 @@ export default function App() {
         >
           <div className="w-full h-full animate-float">
             <div 
-              className="w-full h-full rounded-[3.5rem] border-[10px] border-[#111] bg-[#050b14] overflow-hidden relative shadow-2xl"
+              className="w-full h-full rounded-[3.5rem] border-[10px] border-[#111] bg-[#050b14] overflow-hidden relative shadow-2xl animate-phone-float-hero"
               style={{ 
-                transform: 'rotateX(15deg) rotateY(-12deg) rotateZ(4deg) scale(1.05)',
                 transformStyle: 'preserve-3d',
                 boxShadow: '-20px 40px 60px -10px rgba(0, 0, 0, 0.8), inset 0 0 0 1px rgba(255,255,255,0.05)'
               }}
@@ -227,7 +287,7 @@ export default function App() {
       </main>
 
       {/* Section 2: Overview */}
-      <section id="overview" className="relative z-10 py-32 px-4 flex flex-col items-center justify-center min-h-screen bg-black">
+      <section id="overview" className="relative z-10 py-32 px-4 flex flex-col items-center justify-center min-h-screen bg-black scroll-mt-[80px]">
         <div className="max-w-5xl mx-auto text-center">
           <div className="mb-24 relative" ref={overviewTextRef}>
             {/* Base Text (Dark) */}
@@ -279,7 +339,7 @@ export default function App() {
       </section>
 
       {/* Section 3: Earn */}
-      <section className="relative z-10 py-32 px-4 min-h-screen flex items-center overflow-hidden" style={{ background: 'linear-gradient(to bottom, #000000, #2a1b38, #8b5a8e, #e8d5e5, #ffffff)' }}>
+      <section id="product" className="relative z-10 py-32 px-4 min-h-screen flex items-center overflow-hidden scroll-mt-[80px]" style={{ background: 'linear-gradient(to bottom, #000000, #2a1b38, #8b5a8e, #e8d5e5, #ffffff)' }}>
         
         {/* Grid Background */}
         <div 
@@ -299,11 +359,12 @@ export default function App() {
         <div className="absolute top-[35%] right-[12%] w-12 h-12 bg-white/20 rotate-45 backdrop-blur-sm"></div>
         <div className="absolute bottom-[35%] right-[20%] w-8 h-8 bg-black/10 rotate-45 backdrop-blur-sm"></div>
 
+        <AnimatedSection>
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
           
           {/* Left: Phone Mockup */}
           <div className="flex justify-center md:justify-end">
-            <div className="relative w-full max-w-[320px] bg-[#020817] border border-[#2e3c5ea0] rounded-[2.5rem] shadow-[0_0_80px_rgba(59,130,246,0.15)] overflow-hidden flex flex-col">
+            <div className="relative w-full max-w-[320px] bg-[#020817] border border-[#2e3c5ea0] rounded-[2.5rem] shadow-[0_0_80px_rgba(59,130,246,0.15)] overflow-hidden flex flex-col animate-phone-float-left">
               {/* Top Bar */}
               <div className="flex items-center justify-between px-5 pt-6 pb-4">
                 <div className="flex space-x-2">
@@ -410,10 +471,11 @@ export default function App() {
           </div>
 
         </div>
+        </AnimatedSection>
       </section>
 
       {/* Section 4: Spend */}
-      <section className="relative z-10 py-32 px-4 min-h-screen flex items-center overflow-hidden" style={{ background: 'linear-gradient(to bottom, #1a0b2e, #8b5a8e, #e8d5e5, #ffffff)' }}>
+      <section id="how-it-works" className="relative z-10 py-32 px-4 min-h-screen flex items-center overflow-hidden scroll-mt-[80px]" style={{ background: 'linear-gradient(to bottom, #1a0b2e, #8b5a8e, #e8d5e5, #ffffff)' }}>
         
         {/* Grid Background */}
         <div 
@@ -433,11 +495,12 @@ export default function App() {
         <div className="absolute top-[25%] right-[15%] w-16 h-16 bg-white/10 rotate-45 backdrop-blur-sm"></div>
         <div className="absolute bottom-[40%] right-[22%] w-6 h-6 bg-black/5 rotate-45 backdrop-blur-sm"></div>
 
+        <AnimatedSection>
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
           
           {/* Left: Phone Mockup */}
           <div className="flex justify-center md:justify-start">
-            <div className="relative w-full max-w-[320px] bg-[#05050a] border border-[#2e3c5ea0] rounded-[2.5rem] shadow-[0_0_80px_rgba(155,81,224,0.3),0_0_80px_rgba(242,122,51,0.2)] overflow-hidden flex flex-col p-5">
+            <div className="relative w-full max-w-[320px] bg-[#05050a] border border-[#2e3c5ea0] rounded-[2.5rem] shadow-[0_0_80px_rgba(155,81,224,0.3),0_0_80px_rgba(242,122,51,0.2)] overflow-hidden flex flex-col p-5 animate-phone-float-left">
               
               {/* Card */}
               <div className="w-full h-48 rounded-2xl bg-gradient-to-br from-[#1a1a2e] to-[#000000] border border-gray-700 relative overflow-hidden mb-6 p-4 flex flex-col justify-between shadow-lg">
@@ -582,10 +645,11 @@ export default function App() {
           </div>
 
         </div>
+        </AnimatedSection>
       </section>
 
       {/* Section 5: Invest */}
-      <section className="relative z-10 py-32 px-4 min-h-screen flex items-center overflow-hidden" style={{ background: 'linear-gradient(to bottom, #1a0b2e, #8b5a8e, #e8d5e5, #ffffff)' }}>
+      <section id="security" className="relative z-10 py-32 px-4 min-h-screen flex items-center overflow-hidden scroll-mt-[80px]" style={{ background: 'linear-gradient(to bottom, #1a0b2e, #8b5a8e, #e8d5e5, #ffffff)' }}>
         
         {/* Grid Background */}
         <div 
@@ -605,6 +669,7 @@ export default function App() {
         <div className="absolute top-[25%] right-[15%] w-16 h-16 bg-white/10 rotate-45 backdrop-blur-sm"></div>
         <div className="absolute bottom-[40%] right-[22%] w-6 h-6 bg-black/5 rotate-45 backdrop-blur-sm"></div>
 
+        <AnimatedSection>
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
           
           {/* Left: Phone Mockup */}
@@ -613,8 +678,8 @@ export default function App() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[340px] h-[680px] bg-[#f27a33]/30 blur-[60px] rounded-[3rem] z-0 pointer-events-none" style={{ transform: 'rotateY(15deg) rotateZ(-5deg) translate(-50%, -50%)' }}></div>
             
             <div 
-              className="relative w-full max-w-[320px] bg-[#05050a] border-[8px] border-[#111] rounded-[3rem] shadow-2xl overflow-hidden flex flex-col z-10"
-              style={{ transform: 'rotateY(15deg) rotateZ(-5deg)', transformStyle: 'preserve-3d' }}
+              className="relative w-full max-w-[320px] bg-[#05050a] border-[8px] border-[#111] rounded-[3rem] shadow-2xl overflow-hidden flex flex-col z-10 animate-phone-float"
+              style={{ transformStyle: 'preserve-3d' }}
             >
               {/* Inner Phone Gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#1a0b2e] via-[#05050a] to-black opacity-90"></div>
@@ -773,6 +838,7 @@ export default function App() {
           </div>
 
         </div>
+        </AnimatedSection>
       </section>
 
       {/* Section 6: Borrow */}
@@ -796,6 +862,7 @@ export default function App() {
         <div className="absolute top-[25%] right-[15%] w-16 h-16 bg-white/10 rotate-45 backdrop-blur-sm"></div>
         <div className="absolute bottom-[40%] right-[22%] w-6 h-6 bg-black/5 rotate-45 backdrop-blur-sm"></div>
 
+        <AnimatedSection>
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
           
           {/* Left: Phone Mockup */}
@@ -804,7 +871,7 @@ export default function App() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[340px] h-[680px] bg-[#f27a33]/30 blur-[60px] rounded-[3rem] z-0 pointer-events-none" style={{ transform: 'rotateY(15deg) rotateZ(-5deg) translate(-50%, -50%)' }}></div>
             
             <div 
-              className="relative w-full max-w-[320px] h-[650px] bg-[#05050a] border-[8px] border-[#111] rounded-[3rem] shadow-2xl overflow-hidden flex flex-col z-10"
+              className="relative w-full max-w-[320px] h-[650px] bg-[#05050a] border-[8px] border-[#111] rounded-[3rem] shadow-2xl overflow-hidden flex flex-col z-10 animate-phone-float"
               style={{ transform: 'rotateY(15deg) rotateZ(-5deg)', transformStyle: 'preserve-3d' }}
             >
               {/* Inner Phone Gradient */}
@@ -857,8 +924,7 @@ export default function App() {
                   {/* Bar Chart */}
                   <div className="absolute bottom-6 left-0 right-0 h-10 flex items-end space-x-[2px] px-2">
                     {/* Generate bars */}
-                    {Array.from({ length: 40 }).map((_, i) => {
-                      const height = 20 + Math.random() * 30 + (i > 20 ? 20 : 0);
+                    {chartBarHeights.map((height, i) => {
                       const isGold = i > 15 && i < 30;
                       const isPlatinum = i >= 30;
                       return (
@@ -939,12 +1005,14 @@ export default function App() {
           </div>
 
         </div>
+        </AnimatedSection>
       </section>
 
       {/* Section 7: Key Features */}
-      <section className="relative z-10 py-32 px-4 min-h-screen bg-[#05050a] flex flex-col items-center justify-center">
+      <section id="features" className="relative z-10 py-32 px-4 min-h-screen bg-[#05050a] flex flex-col items-center justify-center scroll-mt-[80px]">
         
         {/* Header */}
+        <AnimatedSection>
         <div className="text-center mb-20 max-w-3xl mx-auto pt-20">
           <h2 className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] font-bold text-white leading-[1.1] mb-6">
             SparkPay wallet. The only wallet<br />
@@ -954,6 +1022,7 @@ export default function App() {
             Set up your wallet in under 60 seconds and instantly get access to global capital flows
           </p>
         </div>
+        </AnimatedSection>
 
         {/* Bento Grid */}
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
@@ -1059,12 +1128,13 @@ export default function App() {
       </section>
 
       {/* Section 8: Statistics */}
-      <section className="relative z-10 py-32 px-4 min-h-screen bg-[#05050a] flex flex-col items-center justify-center overflow-hidden">
+      <section id="tech" className="relative z-10 py-32 px-4 min-h-screen bg-[#05050a] flex flex-col items-center justify-center overflow-hidden scroll-mt-[80px]">
         {/* Background Glow */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="w-[120%] h-[60%] bg-gradient-to-r from-[#2d1b4e] via-[#8b415a] to-[#2d1b4e] opacity-70 blur-[120px] rounded-[100%]"></div>
         </div>
 
+        <AnimatedSection>
         <div className="relative z-10 w-full text-center mb-16">
           <h2 className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] font-bold text-white mb-4">Our Tech</h2>
           <p className="text-gray-400 text-[15px]">The technology powering SparkPay.</p>
@@ -1098,10 +1168,11 @@ export default function App() {
             <p className="text-white text-[15px] font-medium">Gas Fees for Users</p>
           </div>
         </div>
+        </AnimatedSection>
       </section>
 
       {/* Section 9: Roadmap */}
-      <section className="relative z-10 py-32 px-4 min-h-screen bg-[#05050a] overflow-hidden">
+      <section id="roadmap" className="relative z-10 py-32 px-4 min-h-screen bg-[#05050a] overflow-hidden scroll-mt-[80px]">
         
         {/* Grid Background */}
         <div 
@@ -1214,6 +1285,7 @@ export default function App() {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="w-[80%] h-[50%] bg-gradient-to-r from-[#9b51e0]/20 via-[#f27a33]/15 to-[#9b51e0]/20 blur-[120px] rounded-[100%]"></div>
         </div>
+        <AnimatedSection>
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-[3rem] sm:text-[3.5rem] md:text-[4.5rem] font-bold text-white tracking-tight mb-6">
             Ready to join the<br />
@@ -1232,6 +1304,7 @@ export default function App() {
             </a>
           </div>
         </div>
+        </AnimatedSection>
       </section>
 
       {/* Section 11: Final CTA & Footer */}
@@ -1359,7 +1432,7 @@ export default function App() {
 
           {/* Social Icons */}
           <div className="flex items-center space-x-3">
-            <a href="#" className="w-10 h-10 rounded-lg bg-[#15151a] border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1f1f26] transition-all">
+            <a href="https://x.com/SparkPayX" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-[#15151a] border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1f1f26] transition-all">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
           </div>

@@ -4,37 +4,31 @@ import sparkPayLogo from '@/attached_assets/Frame_1171275126_1773561837325.png';
 
 export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const textRef = useRef<HTMLDivElement>(null);
+  const [textReveal, setTextReveal] = useState(0);
+  const overviewTextRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = (e.clientY / window.innerHeight) * 2 - 1;
       setMousePos({ x, y });
-
-      if (textRef.current) {
-        const rect = textRef.current.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-        textRef.current.style.setProperty('--mouse-x', `${mouseX}px`);
-        textRef.current.style.setProperty('--mouse-y', `${mouseY}px`);
-      }
     };
 
     const handleScroll = () => {
-      const overviewSection = document.getElementById('overview');
-      if (overviewSection) {
-        const rect = overviewSection.getBoundingClientRect();
+      if (overviewTextRef.current) {
+        const rect = overviewTextRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        // Calculate progress from 0 to 1 as the section scrolls through the viewport
-        const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + rect.height)));
-        setScrollProgress(progress);
+        const elementCenter = rect.top + rect.height / 2;
+        const start = windowHeight * 0.85;
+        const end = windowHeight * 0.25;
+        const progress = Math.max(0, Math.min(1, (start - elementCenter) / (start - end)));
+        setTextReveal(progress);
       }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
@@ -213,17 +207,21 @@ export default function App() {
       {/* Section 2: Overview */}
       <section id="overview" className="relative z-10 py-32 px-4 flex flex-col items-center justify-center min-h-screen bg-black">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="mb-24 relative" ref={textRef}>
+          <div className="mb-24 relative" ref={overviewTextRef}>
             {/* Base Text (Dark) */}
             <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] leading-[1.2] font-semibold tracking-tight text-[#1a1a1a] mb-6">
               Own your wealth, no intermediaries necessary.<br />
               Because when you hold the keys, you stay in control.
             </h2>
             
-            {/* Highlight Text (Colored + Masked) */}
+            {/* Revealed Text (scroll-driven left-to-right) */}
             <h2 
               aria-hidden="true"
-              className="absolute inset-0 text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] leading-[1.2] font-semibold tracking-tight text-white mb-6 pointer-events-none spotlight-text-mask"
+              className="absolute inset-0 text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] leading-[1.2] font-semibold tracking-tight text-white mb-6 pointer-events-none"
+              style={{
+                maskImage: `linear-gradient(to right, black 0%, black ${textReveal * 100}%, transparent ${textReveal * 100 + 8}%)`,
+                WebkitMaskImage: `linear-gradient(to right, black 0%, black ${textReveal * 100}%, transparent ${textReveal * 100 + 8}%)`,
+              }}
             >
               Own your wealth, no intermediaries necessary.<br />
               Because when you hold the <span className="bg-gradient-to-r from-[#9b51e0] via-[#d946ef] to-[#f27a33] bg-clip-text text-transparent">keys,</span> you stay in control.

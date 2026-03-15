@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { Volume2, ChevronRight, Signal, Wifi, Battery, MoreVertical, ChevronLeft, Fingerprint, Menu, ChevronDown, X, ArrowLeftRight, ArrowUpRight, ArrowDown, Repeat, Plus, TrendingUp } from 'lucide-react';
 
@@ -119,10 +120,10 @@ export default function App() {
           </div>
 
           <div className="flex items-center space-x-3">
-            <a href="#" className="hidden sm:flex items-center space-x-2 bg-white text-black font-semibold px-5 py-2.5 rounded-full text-[14px] hover:bg-gray-100 transition-colors">
+            <Link to="/app" className="hidden sm:flex items-center space-x-2 bg-white text-black font-semibold px-5 py-2.5 rounded-full text-[14px] hover:bg-gray-100 transition-colors">
               <span>Launch App</span>
               <ChevronRight className="w-4 h-4" />
-            </a>
+            </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full border border-gray-800 bg-[#111] hover:bg-[#1a1a1a] transition-colors"
@@ -151,10 +152,10 @@ export default function App() {
                   {link.label}
                 </a>
               ))}
-              <a href="#" className="flex items-center justify-center space-x-2 bg-white text-black font-semibold px-5 py-3 rounded-full text-[15px] mt-4 hover:bg-gray-100 transition-colors sm:hidden">
+              <Link to="/app" className="flex items-center justify-center space-x-2 bg-white text-black font-semibold px-5 py-3 rounded-full text-[15px] mt-4 hover:bg-gray-100 transition-colors sm:hidden">
                 <span>Launch App</span>
                 <ChevronRight className="w-4 h-4" />
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

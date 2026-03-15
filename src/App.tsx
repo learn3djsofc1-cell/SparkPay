@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Volume2, ChevronRight, Signal, Wifi, Battery, MoreVertical, ChevronLeft, Fingerprint, Menu, ChevronDown, X, ArrowLeftRight, ArrowUpRight, ArrowDown, Repeat, Plus, TrendingUp, Bitcoin, Apple } from 'lucide-react';
+import { Volume2, ChevronRight, Signal, Wifi, Battery, MoreVertical, ChevronLeft, Fingerprint, Menu, ChevronDown, X, ArrowLeftRight, ArrowUpRight, ArrowDown, Repeat, Plus, TrendingUp } from 'lucide-react';
 import sparkPayLogo from '@/attached_assets/Frame_1171275126_1773561837325.png';
 import solanaLogo from '@/attached_assets/solana-sol-logo_(17)_1773564269930.png';
 import usdcLogo from '@/attached_assets/usd-coin-usdc-logo_(5)_1773564245249.png';
 import netflixLogo from '@/attached_assets/Netflix-Symbol_1773564776076.png';
 import spotifyLogo from '@/attached_assets/Spotify_Primary_Logo_RGB_Green_1773564758391.png';
+import bitcoinLogo from '@/attached_assets/bitcoin-btc-logo_(2)_1773565036546.png';
+import teslaLogo from '@/attached_assets/Tesla,_Inc.-Logomark-Black-Logo.wine_1773565051159.png';
+import goldLogo from '@/attached_assets/gold--big_1773565030735.png';
+import appleLogo from '@/attached_assets/747_1773565063041.png';
 
 export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -667,9 +671,7 @@ export default function App() {
                   {/* Bitcoin */}
                   <div className="bg-[#0b1121] border border-[#1e293b] rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:bg-[#131b33] transition-colors">
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 rounded-full bg-[#f7931a] flex items-center justify-center">
-                        <Bitcoin className="w-6 h-6 text-white" />
-                      </div>
+                      <img src={bitcoinLogo} alt="Bitcoin" className="w-10 h-10 rounded-full" />
                       <div>
                         <p className="text-white text-[13px] font-semibold">Bitcoin</p>
                         <p className="text-gray-500 text-[10px] font-medium">BTC</p>
@@ -684,8 +686,8 @@ export default function App() {
                   {/* Tesla */}
                   <div className="bg-[#0b1121] border border-[#1e293b] rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:bg-[#131b33] transition-colors">
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                        <span className="text-black font-bold text-lg">T</span>
+                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden">
+                        <img src={teslaLogo} alt="Tesla" className="w-8 h-8 object-contain" />
                       </div>
                       <div>
                         <p className="text-white text-[13px] font-semibold">Tesla</p>
@@ -701,8 +703,8 @@ export default function App() {
                   {/* Apple */}
                   <div className="bg-[#0b1121] border border-[#1e293b] rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:bg-[#131b33] transition-colors">
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                        <Apple className="w-6 h-6 text-black" fill="currentColor" />
+                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden">
+                        <img src={appleLogo} alt="Apple" className="w-6 h-6 object-contain" />
                       </div>
                       <div>
                         <p className="text-white text-[13px] font-semibold">Apple</p>
@@ -718,13 +720,7 @@ export default function App() {
                   {/* Gold ETF */}
                   <div className="bg-[#0b1121] border border-[#1e293b] rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:bg-[#131b33] transition-colors">
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 rounded-full bg-[#f2a900] flex items-center justify-center overflow-hidden">
-                        <div className="w-full h-full flex flex-col justify-center items-center space-y-0.5 opacity-80">
-                           <div className="w-6 h-1 bg-white/50 rounded-full"></div>
-                           <div className="w-6 h-1 bg-white/50 rounded-full"></div>
-                           <div className="w-6 h-1 bg-white/50 rounded-full"></div>
-                        </div>
-                      </div>
+                      <img src={goldLogo} alt="Gold ETF" className="w-10 h-10 rounded-full" />
                       <div>
                         <p className="text-white text-[13px] font-semibold">Gold ETF</p>
                         <p className="text-gray-500 text-[10px] font-medium">GLD</p>

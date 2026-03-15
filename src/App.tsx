@@ -980,8 +980,8 @@ export default function App() {
                 </div>
               </div>
               {/* Bitcoin (Yellow) */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#fcd34d] to-[#d97706] border border-yellow-600 shadow-[0_10px_20px_rgba(0,0,0,0.5),inset_0_-4px_4px_rgba(180,83,9,0.8),inset_0_2px_4px_rgba(255,255,255,0.5)] flex items-center justify-center transform rotate-12 hover:scale-110 transition-transform">
-                <Bitcoin className="w-8 h-8 text-yellow-900" />
+              <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#fcd34d] to-[#d97706] border border-yellow-600 shadow-[0_10px_20px_rgba(0,0,0,0.5),inset_0_-4px_4px_rgba(180,83,9,0.8),inset_0_2px_4px_rgba(255,255,255,0.5)] flex items-center justify-center transform rotate-12 hover:scale-110 transition-transform overflow-hidden">
+                <img src={bitcoinLogo} alt="Bitcoin" className="w-16 h-16" />
               </div>
             </div>
             

@@ -595,14 +595,14 @@ export default function App() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[340px] h-[680px] bg-[#f27a33]/30 blur-[60px] rounded-[3rem] z-0 pointer-events-none" style={{ transform: 'rotateY(15deg) rotateZ(-5deg) translate(-50%, -50%)' }}></div>
             
             <div 
-              className="relative w-full max-w-[320px] h-[650px] bg-[#05050a] border-[8px] border-[#111] rounded-[3rem] shadow-2xl overflow-hidden flex flex-col z-10"
+              className="relative w-full max-w-[320px] bg-[#05050a] border-[8px] border-[#111] rounded-[3rem] shadow-2xl overflow-hidden flex flex-col z-10"
               style={{ transform: 'rotateY(15deg) rotateZ(-5deg)', transformStyle: 'preserve-3d' }}
             >
               {/* Inner Phone Gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#1a0b2e] via-[#05050a] to-black opacity-90"></div>
 
               {/* Phone UI */}
-              <div className="relative z-10 px-5 py-5 h-full flex flex-col">
+              <div className="relative z-10 px-5 py-5 flex flex-col">
                 {/* Status Bar */}
                 <div className="flex justify-between items-center text-[11px] font-medium text-white mb-6">
                   <span>9:41</span>
@@ -663,7 +663,7 @@ export default function App() {
                 </div>
 
                 {/* Asset List */}
-                <div className="flex-1 overflow-y-auto scrollbar-hide space-y-3">
+                <div className="space-y-3">
                   {/* Bitcoin */}
                   <div className="bg-[#0b1121] border border-[#1e293b] rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:bg-[#131b33] transition-colors">
                     <div className="flex items-center space-x-3">
@@ -753,19 +753,12 @@ export default function App() {
               <li>• Enterprise-grade encryption for secrets, hardware wallet compatibility, and optional HSM for custodied solutions.</li>
             </ul>
             
-            {/* Logos */}
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-6 opacity-80 grayscale">
-              <span className="font-bold text-2xl tracking-tighter">T</span>
-              <div className="w-4 h-6 bg-black" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 50% 100%, 0% 25%)' }}></div>
-              <span className="font-bold text-xl tracking-tight">amazon</span>
-              <span className="font-bold text-xl tracking-tight">Google</span>
-              <div className="w-6 h-6 rounded-full bg-black flex items-center justify-center"><Bitcoin className="w-4 h-4 text-white" /></div>
-              <span className="font-black text-xl tracking-tighter">NETFLIX</span>
-              <div className="flex flex-col space-y-1">
-                <div className="w-6 h-1 bg-black rounded-full"></div>
-                <div className="w-6 h-1 bg-black rounded-full"></div>
-                <div className="w-6 h-1 bg-black rounded-full"></div>
-              </div>
+            {/* Brand Names */}
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+              <span className="font-bold text-2xl text-black tracking-tighter">T</span>
+              <span className="font-bold text-xl text-black tracking-tight">amazon</span>
+              <span className="font-bold text-xl text-black tracking-tight">Google</span>
+              <span className="font-black text-xl text-black tracking-tighter">NETFLIX</span>
             </div>
           </div>
 

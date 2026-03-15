@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Outlet, NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -8,8 +7,6 @@ import {
   PiggyBank,
   Landmark,
   Settings,
-  ChevronLeft,
-  ChevronRight,
   Copy,
   LogOut,
   Bell,
@@ -26,7 +23,6 @@ const navItems = [
 ];
 
 export default function DashboardLayout() {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const location = useLocation();
 
   const currentPage = navItems.find(
@@ -36,24 +32,14 @@ export default function DashboardLayout() {
   ) || navItems[0];
 
   return (
-    <div className="min-h-screen bg-[#05050a] text-white font-sans flex">
-      <motion.aside
-        animate={{ width: sidebarCollapsed ? 72 : 240 }}
-        transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-        className="hidden md:flex flex-col fixed top-0 left-0 h-screen bg-[#0a0a12] border-r border-[#1e293b]/50 z-40 overflow-hidden"
-      >
+    <div className="min-h-screen bg-[#05050a] text-white font-sans flex overflow-x-hidden">
+      <aside className="hidden md:flex flex-col fixed top-0 left-0 h-screen w-[240px] bg-[#0a0a12] border-r border-[#1e293b]/50 z-40 overflow-hidden">
         <div className="flex items-center px-4 h-16 shrink-0">
           <Link to="/" className="flex items-center space-x-2 min-w-0">
             <img src={sparkPayLogo} alt="SparkPay" className="w-8 h-8 shrink-0" />
-            {!sidebarCollapsed && (
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-xl font-black tracking-tighter lowercase whitespace-nowrap"
-              >
-                sparkpay
-              </motion.span>
-            )}
+            <span className="text-xl font-black tracking-tighter lowercase whitespace-nowrap">
+              sparkpay
+            </span>
           </Link>
         </div>
 
@@ -72,31 +58,13 @@ export default function DashboardLayout() {
               }
             >
               <item.icon className="w-5 h-5 shrink-0" />
-              {!sidebarCollapsed && <span className="whitespace-nowrap">{item.label}</span>}
+              <span className="whitespace-nowrap">{item.label}</span>
             </NavLink>
           ))}
         </nav>
+      </aside>
 
-        <div className="px-2 pb-4 space-y-2">
-          <button
-            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-            className="flex items-center space-x-3 px-3 py-2.5 rounded-xl text-[14px] font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors w-full"
-          >
-            {sidebarCollapsed ? (
-              <ChevronRight className="w-5 h-5 shrink-0" />
-            ) : (
-              <>
-                <ChevronLeft className="w-5 h-5 shrink-0" />
-                <span className="whitespace-nowrap">Collapse</span>
-              </>
-            )}
-          </button>
-        </div>
-      </motion.aside>
-
-      <div
-        className={`flex-1 flex flex-col min-h-screen transition-all duration-250 ${sidebarCollapsed ? 'md:ml-[72px]' : 'md:ml-[240px]'}`}
-      >
+      <div className="flex-1 flex flex-col min-h-screen md:ml-[240px]">
         <header className="sticky top-0 z-30 bg-[#05050a]/80 backdrop-blur-xl border-b border-[#1e293b]/50">
           <div className="flex items-center justify-between px-4 sm:px-6 h-16">
             <div className="flex items-center space-x-3 md:hidden">
@@ -130,7 +98,7 @@ export default function DashboardLayout() {
           </div>
         </header>
 
-        <main className="flex-1 p-4 sm:p-6 pb-24 md:pb-6 overflow-y-auto">
+        <main className="flex-1 p-4 sm:p-6 pb-24 md:pb-6 overflow-x-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={location.pathname}
@@ -153,7 +121,7 @@ export default function DashboardLayout() {
               to={item.path}
               end={item.path === '/app'}
               className={({ isActive }) =>
-                `relative flex flex-col items-center space-y-1 px-3 py-1.5 rounded-xl transition-colors ${
+                `relative flex flex-col items-center space-y-1 px-2 py-1.5 rounded-xl transition-colors ${
                   isActive ? 'text-white' : 'text-gray-500'
                 }`
               }
@@ -161,7 +129,7 @@ export default function DashboardLayout() {
               {({ isActive }) => (
                 <>
                   <item.icon className="w-5 h-5" />
-                  <span className="text-[10px] font-medium">{item.label}</span>
+                  <span className="text-[9px] font-medium">{item.label}</span>
                   {isActive && (
                     <motion.div
                       layoutId="bottomTabIndicator"

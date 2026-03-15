@@ -35,6 +35,7 @@ export default function App() {
   const [textReveal, setTextReveal] = useState(0);
   const [roadmapProgress, setRoadmapProgress] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const overviewTextRef = useRef<HTMLDivElement>(null);
   const chartBarHeights = useMemo(() => Array.from({ length: 40 }, (_, i) => 20 + Math.random() * 30 + (i > 20 ? 20 : 0)), []);
   const roadmapRef = useRef<HTMLDivElement>(null);
@@ -88,10 +89,14 @@ export default function App() {
       }
     };
 
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => {
+      window.removeEventListener('resize', checkMobile);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
     };
@@ -100,8 +105,8 @@ export default function App() {
   return (
     <div className="min-h-screen bg-black text-white font-sans overflow-hidden relative flex flex-col">
       {/* Background Glows */}
-      <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-[#ff3366]/15 rounded-full blur-[140px] -translate-y-1/2 pointer-events-none"></div>
-      <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] bg-[#0066ff]/15 rounded-full blur-[140px] -translate-y-1/2 pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#ff3366]/15 rounded-full blur-[140px] -translate-y-1/2 pointer-events-none"></div>
+      <div className="absolute top-1/2 right-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#0066ff]/15 rounded-full blur-[140px] -translate-y-1/2 pointer-events-none"></div>
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/5">
@@ -178,7 +183,7 @@ export default function App() {
           className="relative w-full max-w-[340px] h-[700px] mb-[-320px] z-10 transition-transform duration-300 ease-out" 
           style={{ 
             perspective: '1200px',
-            transform: `translate(${mousePos.x * -15}px, ${mousePos.y * -15}px)` 
+            transform: isMobile ? 'none' : `translate(${mousePos.x * -15}px, ${mousePos.y * -15}px)` 
           }}
         >
           <div className="w-full h-full animate-float">
@@ -264,12 +269,12 @@ export default function App() {
         {/* Text Content */}
         <div 
           className="relative z-20 text-center mt-16 max-w-4xl mx-auto transition-transform duration-300 ease-out"
-          style={{ transform: `translate(${mousePos.x * 15}px, ${mousePos.y * 15}px)` }}
+          style={{ transform: isMobile ? 'none' : `translate(${mousePos.x * 15}px, ${mousePos.y * 15}px)` }}
         >
           <div className="flex justify-center mb-8">
             <img src={sparkPayLogo} alt="SparkPay" className="w-16 h-16 md:w-20 md:h-20" />
           </div>
-          <h1 className="text-[3.5rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] leading-[1.05] font-bold tracking-tight mb-12 uppercase">
+          <h1 className="text-[2.25rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] leading-[1.05] font-bold tracking-tight mb-12 uppercase">
             The Global Neobank<br />Built Onchain
           </h1>
           
@@ -1036,13 +1041,13 @@ export default function App() {
             </h3>
             
             {/* Coins Row */}
-            <div className="flex items-center justify-between relative z-10 px-4">
-              <img src="/ethereum-coin.avif" alt="Ethereum" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-12 group-hover:scale-110 transition-transform duration-500" />
-              <img src="/gold-dollar.avif" alt="Dollar" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-6 group-hover:scale-110 transition-transform duration-500" />
-              <img src="/ethereum-purple.avif" alt="USDC" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-6 group-hover:scale-110 transition-transform duration-500" />
-              <img src="/gold-rectangle.avif" alt="Gold" className="w-14 h-20 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
-              <img src="/solana-3d.avif" alt="Solana" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-12 group-hover:scale-110 transition-transform duration-500" />
-              <img src="/bitcoin-orange.avif" alt="Bitcoin" className="w-16 h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
+            <div className="flex items-center justify-between relative z-10 px-2 sm:px-4 flex-wrap gap-2 sm:gap-0 sm:flex-nowrap">
+              <img src="/ethereum-coin.avif" alt="Ethereum" className="w-10 h-10 sm:w-16 sm:h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/gold-dollar.avif" alt="Dollar" className="w-10 h-10 sm:w-16 sm:h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-6 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/ethereum-purple.avif" alt="USDC" className="w-10 h-10 sm:w-16 sm:h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-6 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/gold-rectangle.avif" alt="Gold" className="w-9 h-14 sm:w-14 sm:h-20 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/solana-3d.avif" alt="Solana" className="w-10 h-10 sm:w-16 sm:h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform -rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <img src="/bitcoin-orange.avif" alt="Bitcoin" className="w-10 h-10 sm:w-16 sm:h-16 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
             </div>
             
             {/* Subtle glow behind coins */}
@@ -1132,7 +1137,7 @@ export default function App() {
       <section id="tech" className="relative z-10 py-32 px-4 min-h-screen bg-[#05050a] flex flex-col items-center justify-center overflow-hidden scroll-mt-[80px]">
         {/* Background Glow */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[120%] h-[60%] bg-gradient-to-r from-[#2d1b4e] via-[#8b415a] to-[#2d1b4e] opacity-70 blur-[120px] rounded-[100%]"></div>
+          <div className="w-full h-[60%] bg-gradient-to-r from-[#2d1b4e] via-[#8b415a] to-[#2d1b4e] opacity-70 blur-[120px] rounded-[100%]"></div>
         </div>
 
         <AnimatedSection>
@@ -1312,7 +1317,7 @@ export default function App() {
       <section className="relative z-10 pt-32 min-h-screen flex flex-col justify-between overflow-hidden" style={{ background: 'linear-gradient(to bottom, #ffffff, #e8d5e5, #8b5a8e, #1a0b2e)' }}>
         
         {/* Floating Phones & Cards Illustration */}
-        <div className="relative flex-1 flex items-center justify-center mt-20">
+        <div className="relative flex-1 flex items-center justify-center mt-20 overflow-hidden">
           
           {/* Phone Mockup */}
           <div 
@@ -1386,7 +1391,7 @@ export default function App() {
 
           {/* Floating Physical Card */}
           <div 
-            className="absolute z-10 w-[260px] sm:w-[340px] h-[165px] sm:h-[215px] rounded-2xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-gray-700/50 rotate-[15deg] translate-x-[20px] translate-y-[80px] sm:rotate-[25deg] sm:translate-x-[150px] sm:translate-y-[100px] transition-transform"
+            className="absolute z-10 w-[200px] sm:w-[340px] h-[130px] sm:h-[215px] rounded-2xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-gray-700/50 rotate-[15deg] translate-x-[10px] translate-y-[60px] sm:rotate-[25deg] sm:translate-x-[150px] sm:translate-y-[100px] transition-transform right-0 sm:right-auto"
             style={{ 
               background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
             }}
